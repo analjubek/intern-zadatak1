@@ -6,24 +6,32 @@
 //
 
 import UIKit
+import SnapKit
+import SwiftUI
 
 class MainViewController: UIViewController {
-
+    
+    
+    @IBOutlet weak var txtHorizontalEdge: UITextField!
+    @IBOutlet weak var txtVerticalEdge: UITextField!
+    
+    @IBOutlet weak var btnDraw: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
         view.backgroundColor = .white
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    @IBAction func txtInputHorizontalEC(_ sender: Any) {
+        print(txtHorizontalEdge.text!)
     }
-    */
-
+    
+    @IBAction func txtInputVerticalEC(_ sender: Any) {
+        print(txtVerticalEdge.text!)
+    }
+    
+    @IBAction func btnDrawTUI(_ sender: Any) {
+        print("Evo me")
+    }
+    
 }

@@ -12,6 +12,7 @@
 		F66408A228A1060C00FC2B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */; };
 		F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66408B928A24CC300FC2B62 /* MainViewController.swift */; };
 		F66408BC28A24CC300FC2B62 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66408BA28A24CC300FC2B62 /* MainViewController.xib */; };
+		F66408BF28A271D800FC2B62 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F66408BE28A271D800FC2B62 /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,6 +30,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66408BF28A271D800FC2B62 /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -55,11 +57,11 @@
 			isa = PBXGroup;
 			children = (
 				F664089528A1060B00FC2B62 /* AppDelegate.swift */,
-				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
 				F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */,
-				F66408A328A1060C00FC2B62 /* Info.plist */,
 				F66408B928A24CC300FC2B62 /* MainViewController.swift */,
 				F66408BA28A24CC300FC2B62 /* MainViewController.xib */,
+				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
+				F66408A328A1060C00FC2B62 /* Info.plist */,
 			);
 			path = "cs-zadatak1";
 			sourceTree = "<group>";
@@ -80,6 +82,9 @@
 			dependencies = (
 			);
 			name = "cs-zadatak1";
+			packageProductDependencies = (
+				F66408BE28A271D800FC2B62 /* SnapKit */,
+			);
 			productName = "cs-zadatak1";
 			productReference = F664089228A1060B00FC2B62 /* cs-zadatak1.app */;
 			productType = "com.apple.product-type.application";
@@ -108,6 +113,9 @@
 				Base,
 			);
 			mainGroup = F664088928A1060B00FC2B62;
+			packageReferences = (
+				F66408BD28A271D800FC2B62 /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = F664089328A1060B00FC2B62 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -344,6 +352,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		F66408BD28A271D800FC2B62 /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit";
+			requirement = {
+				branch = develop;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		F66408BE28A271D800FC2B62 /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F66408BD28A271D800FC2B62 /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = F664088A28A1060B00FC2B62 /* Project object */;
 }
