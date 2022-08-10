@@ -36,8 +36,8 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Sc0-Lw-fBF"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <connections>
                                 <action selector="txtInputHorizontalEC:" destination="-1" eventType="editingChanged" id="84n-zJ-HGn"/>
                             </connections>
@@ -63,8 +63,8 @@
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="GV1-Yh-2SJ"/>
                             </constraints>
-                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                            <textInputTraits key="textInputTraits"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             <connections>
                                 <action selector="txtInputVerticalEC:" destination="-1" eventType="editingChanged" id="AMY-6C-WMa"/>
                             </connections>
