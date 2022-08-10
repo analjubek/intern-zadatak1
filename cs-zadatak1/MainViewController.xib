@@ -12,6 +12,8 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MainViewController" customModule="cs_zadatak1" customModuleProvider="target">
             <connections>
                 <outlet property="btnDraw" destination="v5b-pD-Jxk" id="BEx-In-Wss"/>
+                <outlet property="lblWrongHorizontalEdge" destination="9fV-zN-aVr" id="tq1-Yg-wsU"/>
+                <outlet property="lblWrongVerticalEdge" destination="sbe-MM-ub0" id="4Uf-Va-96X"/>
                 <outlet property="txtHorizontalEdge" destination="wDo-a7-T3k" id="zsg-d9-YnL"/>
                 <outlet property="txtVerticalEdge" destination="mbO-U5-phv" id="fkH-lI-3hV"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -25,14 +27,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvo-Oe-1Sv" userLabel="firstContainerView">
                     <rect key="frame" x="20.5" y="114" width="373" height="170"/>
                     <subviews>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesi broj horizontalnih pravokutnika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="45h-36-oQK">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesi broj horizontalnih pravokutnika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="45h-36-oQK" userLabel="lblInsertHorizontalEdge">
                             <rect key="frame" x="38" y="20" width="297" height="51"/>
                             <fontDescription key="fontDescription" type="system" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDo-a7-T3k" userLabel="txtFieldHorizontal">
-                            <rect key="frame" x="21" y="91" width="331" height="50"/>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="wDo-a7-T3k" userLabel="txtFieldHorizontalEdge">
+                            <rect key="frame" x="21" y="86" width="331" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="Sc0-Lw-fBF"/>
                             </constraints>
@@ -42,15 +44,23 @@
                                 <action selector="txtInputHorizontalEC:" destination="-1" eventType="editingChanged" id="84n-zJ-HGn"/>
                             </connections>
                         </textField>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesena vrijednost mora biti cijeli broj veći od nule." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fV-zN-aVr" userLabel="lblWrongHorizontalEdge">
+                            <rect key="frame" x="31" y="143" width="311" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" name="AccentColor"/>
                     <color key="tintColor" name="AccentColor"/>
                     <constraints>
-                        <constraint firstItem="wDo-a7-T3k" firstAttribute="top" secondItem="45h-36-oQK" secondAttribute="bottom" constant="20" id="1Vd-24-EAv"/>
+                        <constraint firstItem="wDo-a7-T3k" firstAttribute="top" secondItem="45h-36-oQK" secondAttribute="bottom" constant="15" id="1Vd-24-EAv"/>
                         <constraint firstItem="45h-36-oQK" firstAttribute="height" secondItem="pvo-Oe-1Sv" secondAttribute="height" multiplier="0.3" id="1af-Mb-lYk"/>
                         <constraint firstItem="45h-36-oQK" firstAttribute="centerX" secondItem="pvo-Oe-1Sv" secondAttribute="centerX" id="3fh-aO-sNQ"/>
                         <constraint firstItem="wDo-a7-T3k" firstAttribute="centerX" secondItem="pvo-Oe-1Sv" secondAttribute="centerX" id="GxZ-H7-EK9"/>
+                        <constraint firstItem="9fV-zN-aVr" firstAttribute="top" secondItem="wDo-a7-T3k" secondAttribute="bottom" constant="7" id="ISJ-x8-LLf"/>
                         <constraint firstAttribute="height" constant="170" id="Lh3-1H-ThT"/>
+                        <constraint firstItem="9fV-zN-aVr" firstAttribute="centerX" secondItem="pvo-Oe-1Sv" secondAttribute="centerX" id="Oap-Mo-vk2"/>
                         <constraint firstItem="wDo-a7-T3k" firstAttribute="height" secondItem="pvo-Oe-1Sv" secondAttribute="height" multiplier="0.3" priority="999" id="kac-l0-wLQ"/>
                         <constraint firstItem="45h-36-oQK" firstAttribute="top" secondItem="pvo-Oe-1Sv" secondAttribute="top" constant="20" id="o3V-JA-ypl"/>
                     </constraints>
@@ -58,8 +68,14 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1t-uT-pVf" userLabel="secondContainerView">
                     <rect key="frame" x="20.5" y="354" width="373" height="170"/>
                     <subviews>
-                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbO-U5-phv" userLabel="txtFieldVertical">
-                            <rect key="frame" x="21" y="91" width="331" height="50"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesi broj vertikalnih pravokutnika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="T1n-cS-gB4" userLabel="lblInsertVerticalEdge">
+                            <rect key="frame" x="49" y="20" width="275" height="51"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mbO-U5-phv" userLabel="txtFieldVerticalEdge">
+                            <rect key="frame" x="21" y="86" width="331" height="50"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="50" id="GV1-Yh-2SJ"/>
                             </constraints>
@@ -69,9 +85,9 @@
                                 <action selector="txtInputVerticalEC:" destination="-1" eventType="editingChanged" id="AMY-6C-WMa"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesi broj vertikalnih pravokutnika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="T1n-cS-gB4">
-                            <rect key="frame" x="49" y="20" width="275" height="51"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesena vrijednost mora biti cijeli broj veći od nule." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbe-MM-ub0" userLabel="lblWrongVerticalEdge">
+                            <rect key="frame" x="31" y="143" width="311" height="16"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -79,9 +95,11 @@
                     <color key="backgroundColor" name="AccentColor"/>
                     <color key="tintColor" name="AccentColor"/>
                     <constraints>
+                        <constraint firstItem="sbe-MM-ub0" firstAttribute="top" secondItem="mbO-U5-phv" secondAttribute="bottom" constant="7" id="01O-BX-4Ix"/>
                         <constraint firstItem="T1n-cS-gB4" firstAttribute="height" secondItem="M1t-uT-pVf" secondAttribute="height" multiplier="0.3" id="2kd-Uq-3uS"/>
-                        <constraint firstItem="mbO-U5-phv" firstAttribute="top" secondItem="T1n-cS-gB4" secondAttribute="bottom" constant="20" id="AgO-7V-6ln"/>
+                        <constraint firstItem="mbO-U5-phv" firstAttribute="top" secondItem="T1n-cS-gB4" secondAttribute="bottom" constant="15" id="AgO-7V-6ln"/>
                         <constraint firstAttribute="height" constant="170" id="BIx-xN-4YY"/>
+                        <constraint firstItem="sbe-MM-ub0" firstAttribute="centerX" secondItem="M1t-uT-pVf" secondAttribute="centerX" id="BUi-mG-XdY"/>
                         <constraint firstItem="T1n-cS-gB4" firstAttribute="top" secondItem="M1t-uT-pVf" secondAttribute="top" constant="20" id="QPh-Ej-LPD"/>
                         <constraint firstItem="mbO-U5-phv" firstAttribute="height" secondItem="M1t-uT-pVf" secondAttribute="height" multiplier="0.3" priority="999" id="cUs-Jc-L5n"/>
                         <constraint firstItem="mbO-U5-phv" firstAttribute="centerX" secondItem="M1t-uT-pVf" secondAttribute="centerX" id="dXz-OD-EeZ"/>
@@ -120,7 +138,7 @@
                 <constraint firstItem="v5b-pD-Jxk" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="uwp-gV-dX9"/>
                 <constraint firstItem="pvo-Oe-1Sv" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xDn-TI-RiA"/>
             </constraints>
-            <point key="canvasLocation" x="-638" y="-17"/>
+            <point key="canvasLocation" x="-1194" y="-370"/>
         </view>
     </objects>
     <resources>
