@@ -111,7 +111,7 @@ class MainViewController: UIViewController {
         else if (verticalInput.isEmpty){
             print("prazno")
             lblWrongVerticalEdge.isHidden = true
-            lblWrongHorizontalEdge.isHidden = true
+            lblWrongVerticalEdge.isHidden = true
             bolVertical = false
             disableButton()
         }
