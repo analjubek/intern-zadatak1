@@ -20,11 +20,37 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var btnDraw: UIButton!
     
+    private var bolHorizontal: Bool!
+    private var bolVertical: Bool!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         
         hideWarnings()
+        setupBol()
+        disableButton()
+    }
+    
+    func setupBol(){
+        bolHorizontal = false
+        bolVertical = false
+    }
+    
+    func shouldEnableButton(){
+        if (bolHorizontal && bolVertical){
+            enableButton()
+        }
+    }
+    
+    func enableButton(){
+        btnDraw.isEnabled = true
+        btnDraw.alpha = 1.0
+    }
+    
+    func disableButton(){
+        btnDraw.isEnabled = false
+        btnDraw.alpha = 0.5
     }
     
     func hideWarnings() {
@@ -39,20 +65,28 @@ class MainViewController: UIViewController {
         if(isIntegerNumber(horizontalInput)){
             print("broj")
             lblWrongHorizontalEdge.isHidden = true
+            bolHorizontal = true
+            shouldEnableButton()
             
             let horizontalInputInt = Int(horizontalInput)
             if(horizontalInputInt! <= 0){
                 print("nula ili manje")
                 lblWrongHorizontalEdge.isHidden = false
+                bolHorizontal = false
+                disableButton()
             }
         }
         else if (horizontalInput.isEmpty){
             print("prazno")
             lblWrongHorizontalEdge.isHidden = true
+            bolHorizontal = false
+            disableButton()
         }
         else{
             print("nije broj")
             lblWrongHorizontalEdge.isHidden = false
+            bolHorizontal = false
+            disableButton()
         }
     }
     
@@ -63,20 +97,29 @@ class MainViewController: UIViewController {
         if(isIntegerNumber(verticalInput)){
             print("broj")
             lblWrongVerticalEdge.isHidden = true
+            bolVertical = true
+            shouldEnableButton()
             
             let verticalInputInt = Int(verticalInput)
             if(verticalInputInt! <= 0){
                 print("nula ili manje")
                 lblWrongVerticalEdge.isHidden = false
+                bolVertical = false
+                disableButton()
             }
         }
         else if (verticalInput.isEmpty){
             print("prazno")
             lblWrongVerticalEdge.isHidden = true
+            lblWrongHorizontalEdge.isHidden = true
+            bolVertical = false
+            disableButton()
         }
         else{
             print("nije broj")
             lblWrongVerticalEdge.isHidden = false
+            bolVertical = false
+            disableButton()
         }
     }
     
@@ -92,4 +135,5 @@ class MainViewController: UIViewController {
             return false
         }
     }
+    
 }
