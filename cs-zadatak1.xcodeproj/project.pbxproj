@@ -13,6 +13,10 @@
 		F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66408B928A24CC300FC2B62 /* MainViewController.swift */; };
 		F66408BC28A24CC300FC2B62 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66408BA28A24CC300FC2B62 /* MainViewController.xib */; };
 		F66408BF28A271D800FC2B62 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F66408BE28A271D800FC2B62 /* SnapKit */; };
+		F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */; };
+		F66CC17628A4DEC0004A39A7 /* RectangleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */; };
+		F66CC17828A4E30A004A39A7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17728A4E30A004A39A7 /* AppCoordinator.swift */; };
+		F66CC17A28A4F10F004A39A7 /* AppCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17928A4F10F004A39A7 /* AppCoordinatorProtocol.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -23,6 +27,10 @@
 		F66408A328A1060C00FC2B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F66408B928A24CC300FC2B62 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		F66408BA28A24CC300FC2B62 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleViewController.swift; sourceTree = "<group>"; };
+		F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleViewController.xib; sourceTree = "<group>"; };
+		F66CC17728A4E30A004A39A7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		F66CC17928A4F10F004A39A7 /* AppCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorProtocol.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -62,6 +70,10 @@
 				F66408BA28A24CC300FC2B62 /* MainViewController.xib */,
 				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
 				F66408A328A1060C00FC2B62 /* Info.plist */,
+				F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */,
+				F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */,
+				F66CC17728A4E30A004A39A7 /* AppCoordinator.swift */,
+				F66CC17928A4F10F004A39A7 /* AppCoordinatorProtocol.swift */,
 			);
 			path = "cs-zadatak1";
 			sourceTree = "<group>";
@@ -130,6 +142,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66CC17628A4DEC0004A39A7 /* RectangleViewController.xib in Resources */,
 				F66408A228A1060C00FC2B62 /* LaunchScreen.storyboard in Resources */,
 				F66408BC28A24CC300FC2B62 /* MainViewController.xib in Resources */,
 				F664089F28A1060C00FC2B62 /* Assets.xcassets in Resources */,
@@ -143,7 +156,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F66CC17828A4E30A004A39A7 /* AppCoordinator.swift in Sources */,
 				F664089628A1060B00FC2B62 /* AppDelegate.swift in Sources */,
+				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
+				F66CC17A28A4F10F004A39A7 /* AppCoordinatorProtocol.swift in Sources */,
 				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
