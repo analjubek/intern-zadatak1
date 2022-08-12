@@ -11,37 +11,22 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    private var appCoordinator: AppCoordinator?  // 1
-    
-    /*private lazy var appCoordinator: AppCoordinator = {
-        return AppCoordinator(in: self.window!)
-    }()*/
-    
-    func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        let window = UIWindow(frame: UIScreen.main.bounds)
-            let appCoordinator = AppCoordinator(window: window) // 2
-            
-            self.window = window
-            self.appCoordinator = appCoordinator
-            
-            appCoordinator.start()  // 3
-            return true
-    }
-    /*
     var initialViewController: UIViewController?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        initialViewController = MainViewController(nibName: "MainViewController", bundle: nil)
         
+        initialViewController = MainViewController.fromNib(bundle: Bundle.main)
+
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
 
         window!.rootViewController = initialViewController
         window!.makeKeyAndVisible()
-        
         return true
-    }*/
+    }
 }
+
+// inicijalizirati main nav controller u AppDelegateu
+// kreirati koordinator, unutar AppDelegatea pozvati i proslijediti nav controller
+// u impl nav controllera pozvati main view controller
 

@@ -15,8 +15,9 @@
 		F66408BF28A271D800FC2B62 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F66408BE28A271D800FC2B62 /* SnapKit */; };
 		F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */; };
 		F66CC17628A4DEC0004A39A7 /* RectangleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */; };
-		F66CC17828A4E30A004A39A7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17728A4E30A004A39A7 /* AppCoordinator.swift */; };
-		F66CC17A28A4F10F004A39A7 /* AppCoordinatorProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17928A4F10F004A39A7 /* AppCoordinatorProtocol.swift */; };
+		F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18028A518C4004A39A7 /* Coordinator.swift */; };
+		F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */; };
+		F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18B28A53686004A39A7 /* UIViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -29,8 +30,9 @@
 		F66408BA28A24CC300FC2B62 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
 		F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleViewController.swift; sourceTree = "<group>"; };
 		F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleViewController.xib; sourceTree = "<group>"; };
-		F66CC17728A4E30A004A39A7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		F66CC17928A4F10F004A39A7 /* AppCoordinatorProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinatorProtocol.swift; sourceTree = "<group>"; };
+		F66CC18028A518C4004A39A7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
+		F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCoordinator.swift; sourceTree = "<group>"; };
+		F66CC18B28A53686004A39A7 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,18 +66,67 @@
 		F664089428A1060B00FC2B62 /* cs-zadatak1 */ = {
 			isa = PBXGroup;
 			children = (
+				F66CC18A28A5274A004A39A7 /* Extensions */,
+				F66CC18528A51B46004A39A7 /* Coordinators */,
+				F66CC17F28A518AF004A39A7 /* Protocols */,
+				F66CC18228A51ADA004A39A7 /* Controllers */,
 				F664089528A1060B00FC2B62 /* AppDelegate.swift */,
 				F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */,
-				F66408B928A24CC300FC2B62 /* MainViewController.swift */,
-				F66408BA28A24CC300FC2B62 /* MainViewController.xib */,
 				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
 				F66408A328A1060C00FC2B62 /* Info.plist */,
-				F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */,
-				F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */,
-				F66CC17728A4E30A004A39A7 /* AppCoordinator.swift */,
-				F66CC17928A4F10F004A39A7 /* AppCoordinatorProtocol.swift */,
 			);
 			path = "cs-zadatak1";
+			sourceTree = "<group>";
+		};
+		F66CC17F28A518AF004A39A7 /* Protocols */ = {
+			isa = PBXGroup;
+			children = (
+				F66CC18028A518C4004A39A7 /* Coordinator.swift */,
+			);
+			path = Protocols;
+			sourceTree = "<group>";
+		};
+		F66CC18228A51ADA004A39A7 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				F66CC18428A51B27004A39A7 /* RectangleViewController */,
+				F66CC18328A51B19004A39A7 /* MainViewController */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		F66CC18328A51B19004A39A7 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F66408B928A24CC300FC2B62 /* MainViewController.swift */,
+				F66408BA28A24CC300FC2B62 /* MainViewController.xib */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		F66CC18428A51B27004A39A7 /* RectangleViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */,
+				F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */,
+			);
+			path = RectangleViewController;
+			sourceTree = "<group>";
+		};
+		F66CC18528A51B46004A39A7 /* Coordinators */ = {
+			isa = PBXGroup;
+			children = (
+				F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */,
+			);
+			path = Coordinators;
+			sourceTree = "<group>";
+		};
+		F66CC18A28A5274A004A39A7 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				F66CC18B28A53686004A39A7 /* UIViewController.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -156,11 +207,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				F66CC17828A4E30A004A39A7 /* AppCoordinator.swift in Sources */,
 				F664089628A1060B00FC2B62 /* AppDelegate.swift in Sources */,
+				F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */,
+				F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */,
 				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
-				F66CC17A28A4F10F004A39A7 /* AppCoordinatorProtocol.swift in Sources */,
 				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
+				F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
