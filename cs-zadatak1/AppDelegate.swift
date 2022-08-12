@@ -14,14 +14,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var initialViewController: UIViewController?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        
-        initialViewController = MainViewController.fromNib(bundle: Bundle.main)
-
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
+        
+        let appNavC = UINavigationController()
+        self.window!.rootViewController = appNavC
 
-        window!.rootViewController = initialViewController
-        window!.makeKeyAndVisible()
+        self.window!.makeKeyAndVisible()
+        
+        let appCoordinator = AppCoordinator(navigationController: appNavC)
+        appCoordinator.start()
+        appCoordinator.childCoordinators.append(appCoordinator)
+        
         return true
     }
 }

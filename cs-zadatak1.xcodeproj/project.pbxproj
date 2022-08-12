@@ -18,6 +18,7 @@
 		F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18028A518C4004A39A7 /* Coordinator.swift */; };
 		F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */; };
 		F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18B28A53686004A39A7 /* UIViewController.swift */; };
+		F66CC18E28A62F8F004A39A7 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC18D28A62F8F004A39A7 /* AppCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +34,7 @@
 		F66CC18028A518C4004A39A7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
 		F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCoordinator.swift; sourceTree = "<group>"; };
 		F66CC18B28A53686004A39A7 /* UIViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewController.swift; sourceTree = "<group>"; };
+		F66CC18D28A62F8F004A39A7 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +119,7 @@
 			isa = PBXGroup;
 			children = (
 				F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */,
+				F66CC18D28A62F8F004A39A7 /* AppCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -213,6 +216,7 @@
 				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
 				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
 				F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */,
+				F66CC18E28A62F8F004A39A7 /* AppCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -123,12 +123,12 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func btnDrawTUI(_ sender: UIButton) {
-        
-        let navC = UINavigationController()
-        let coordinator = RectangleCoordinator(navigationController: navC)
+
+        let coordinator = RectangleCoordinator(navigationController: self.navigationController!)
         coordinator.start()
         coordinator.childCoordinators.append(coordinator)
-        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+
         
         //print("Evo me")
     }
