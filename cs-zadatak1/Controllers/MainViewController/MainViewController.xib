@@ -25,7 +25,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pvo-Oe-1Sv" userLabel="firstContainerView">
-                    <rect key="frame" x="20.5" y="114" width="373" height="170"/>
+                    <rect key="frame" x="20.5" y="94" width="373" height="170"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesi broj horizontalnih pravokutnika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="4" translatesAutoresizingMaskIntoConstraints="NO" id="45h-36-oQK" userLabel="lblInsertHorizontalEdge">
                             <rect key="frame" x="38" y="20" width="297" height="51"/>
@@ -66,7 +66,7 @@
                     </constraints>
                 </view>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M1t-uT-pVf" userLabel="secondContainerView">
-                    <rect key="frame" x="20.5" y="354" width="373" height="170"/>
+                    <rect key="frame" x="20.5" y="334" width="373" height="170"/>
                     <subviews>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesi broj vertikalnih pravokutnika" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="8" translatesAutoresizingMaskIntoConstraints="NO" id="T1n-cS-gB4" userLabel="lblInsertVerticalEdge">
                             <rect key="frame" x="49" y="20" width="275" height="51"/>
@@ -107,7 +107,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="v5b-pD-Jxk">
-                    <rect key="frame" x="20.5" y="594" width="373" height="122.5"/>
+                    <rect key="frame" x="20.5" y="574" width="373" height="122.5"/>
                     <color key="backgroundColor" name="AccentColor"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="19"/>
                     <color key="tintColor" red="0.0" green="0.43162855505943298" blue="0.99592393636703491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -127,7 +127,7 @@
                 <constraint firstItem="pvo-Oe-1Sv" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.2" priority="999" id="Blj-i0-k13"/>
                 <constraint firstItem="M1t-uT-pVf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="E4A-BK-fqn"/>
                 <constraint firstItem="M1t-uT-pVf" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.2" priority="999" id="Hwy-WA-eeN"/>
-                <constraint firstItem="pvo-Oe-1Sv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="70" id="M02-Kl-Iit"/>
+                <constraint firstItem="pvo-Oe-1Sv" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="50" id="M02-Kl-Iit"/>
                 <constraint firstItem="mbO-U5-phv" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.8" id="OJv-c9-0xR"/>
                 <constraint firstItem="v5b-pD-Jxk" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.9" id="ONw-22-bOE"/>
                 <constraint firstItem="v5b-pD-Jxk" firstAttribute="top" secondItem="M1t-uT-pVf" secondAttribute="bottom" constant="70" id="PXr-GA-nzU"/>

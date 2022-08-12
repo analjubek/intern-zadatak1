@@ -18,7 +18,4 @@ class RectangleViewController: UIViewController {
         print("horizontal edge: " + String(rectangle!.horizontalEdge))
         print("vertical edge: " + String(rectangle!.verticalEdge))
     }
-    //rectangleViewModel, varijable: horiz, vert
-    //deklarirati varijablu tipa ..model
-    //iz koordinatora
 }
