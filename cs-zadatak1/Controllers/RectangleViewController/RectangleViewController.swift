@@ -5,13 +5,20 @@
 //  Created by Ana Ljubek on 11.08.2022..
 //
 
+import Foundation
 import UIKit
 
 class RectangleViewController: UIViewController {
-
+    
+    var rectangle: Rectangle?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        print("horizontal edge: " + String(rectangle!.horizontalEdge))
+        print("vertical edge: " + String(rectangle!.verticalEdge))
     }
-    
+    //rectangleViewModel, varijable: horiz, vert
+    //deklarirati varijablu tipa ..model
+    //iz koordinatora
 }

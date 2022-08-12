@@ -14,6 +14,9 @@ class MainViewController: UIViewController {
     @IBOutlet weak var txtHorizontalEdge: UITextField!
     @IBOutlet weak var txtVerticalEdge: UITextField!
     
+    var horizontalInputInt = 1
+    var verticalInputInt = 1
+    
     @IBOutlet weak var lblWrongHorizontalEdge: UILabel!
     @IBOutlet weak var lblWrongVerticalEdge: UILabel!
     
@@ -67,8 +70,8 @@ class MainViewController: UIViewController {
             bolHorizontal = true
             shouldEnableButton()
             
-            let horizontalInputInt = Int(horizontalInput)
-            if(horizontalInputInt! <= 0){
+            horizontalInputInt = Int(horizontalInput)!
+            if(horizontalInputInt <= 0){
                 //print("nula ili manje")
                 lblWrongHorizontalEdge.isHidden = false
                 bolHorizontal = false
@@ -99,8 +102,8 @@ class MainViewController: UIViewController {
             bolVertical = true
             shouldEnableButton()
             
-            let verticalInputInt = Int(verticalInput)
-            if(verticalInputInt! <= 0){
+            verticalInputInt = Int(verticalInput)!
+            if(verticalInputInt <= 0){
                 //print("nula ili manje")
                 lblWrongVerticalEdge.isHidden = false
                 bolVertical = false
@@ -124,12 +127,11 @@ class MainViewController: UIViewController {
     
     @IBAction func btnDrawTUI(_ sender: UIButton) {
 
-        let coordinator = RectangleCoordinator(navigationController: self.navigationController!)
+        let coordinator = RectangleCoordinator(navigationController: self.navigationController!, horizontalEdge: horizontalInputInt, verticalEdge: verticalInputInt)
         coordinator.start()
         coordinator.childCoordinators.append(coordinator)
-        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-
         
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
         //print("Evo me")
     }
     

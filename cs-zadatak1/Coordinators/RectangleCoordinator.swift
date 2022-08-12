@@ -12,17 +12,23 @@ class RectangleCoordinator: Coordinator{
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
+    var horizontalEdge: Int
+    var verticalEdge: Int
+    
     // lazy stored property
     // lazy var = just-in-time calculation of expensive work
     lazy var rectangleViewController: RectangleViewController = {
         let vc = RectangleViewController.fromNib(bundle: Bundle.main)
+        vc.rectangle = Rectangle(horizontalEdge: horizontalEdge, verticalEdge: verticalEdge) // šaljemo vrijednosti rectangleu rectangleViewControllera
         return vc
     }()
     // These variables are created using a function you specify only when that variable is FIRST requested. If it's never requested, the function is never run, so it does help save processing time. -> stvara se samo ako je pozvana, jednom
     
     
-    init(navigationController: UINavigationController){
+    init(navigationController: UINavigationController, horizontalEdge: Int, verticalEdge: Int){
         self.navigationController = navigationController
+        self.horizontalEdge = horizontalEdge
+        self.verticalEdge = verticalEdge
     }
     
     func start() {
