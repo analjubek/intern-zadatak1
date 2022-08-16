@@ -10,6 +10,8 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="RectangleViewController" customModule="cs_zadatak1" customModuleProvider="target">
             <connections>
+                <outlet property="cvRectangles" destination="gbb-tq-XYf" id="FCE-x8-z7q"/>
+                <outlet property="sizeView" destination="PLN-Mu-Sfw" id="cHm-tN-uvy"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -19,43 +21,64 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k3c-TO-bAp" userLabel="btnChangeColor">
-                    <rect key="frame" x="20.5" y="724.5" width="373" height="122.5"/>
+                    <rect key="frame" x="20.5" y="729.5" width="373" height="122.5"/>
                     <color key="backgroundColor" red="0.0" green="0.43162855505943298" blue="0.99592393636703491" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="19"/>
                     <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                     <state key="normal" title="Promijeni boju">
                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </state>
+                    <connections>
+                        <action selector="btnChangeColor:" destination="-1" eventType="touchUpInside" id="f9o-Cc-zux"/>
+                    </connections>
                 </button>
-                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="31r-Qj-xJX">
-                    <rect key="frame" x="0.0" y="44" width="414" height="660.5"/>
-                    <color key="backgroundColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="tlX-yl-vy3">
-                        <size key="itemSize" width="128" height="128"/>
-                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    </collectionViewFlowLayout>
-                </collectionView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PLN-Mu-Sfw">
+                    <rect key="frame" x="0.0" y="44" width="414" height="670.5"/>
+                    <subviews>
+                        <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gbb-tq-XYf">
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="670.5"/>
+                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z2L-gg-nfS">
+                                <size key="itemSize" width="128" height="128"/>
+                                <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </collectionViewFlowLayout>
+                        </collectionView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <constraints>
+                        <constraint firstItem="gbb-tq-XYf" firstAttribute="top" secondItem="PLN-Mu-Sfw" secondAttribute="top" id="Ajg-UP-0fT" userLabel="Collection View.top = View.top"/>
+                        <constraint firstAttribute="trailing" secondItem="gbb-tq-XYf" secondAttribute="trailing" id="NFV-Nz-1HL"/>
+                        <constraint firstAttribute="bottom" secondItem="gbb-tq-XYf" secondAttribute="bottom" id="fmW-Rd-KNx"/>
+                        <constraint firstItem="gbb-tq-XYf" firstAttribute="leading" secondItem="PLN-Mu-Sfw" secondAttribute="leading" id="tSF-cI-zmu"/>
+                    </constraints>
+                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
-                <constraint firstItem="k3c-TO-bAp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="9aq-hV-Jjh"/>
-                <constraint firstItem="31r-Qj-xJX" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="CwH-Tu-TAU"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="k3c-TO-bAp" secondAttribute="bottom" constant="15" id="M6u-4M-1Lt"/>
-                <constraint firstItem="k3c-TO-bAp" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.15" id="WjI-8o-9Id"/>
-                <constraint firstItem="k3c-TO-bAp" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.9" id="cUe-Qr-odx"/>
-                <constraint firstItem="k3c-TO-bAp" firstAttribute="top" secondItem="31r-Qj-xJX" secondAttribute="bottom" constant="20" id="jHq-Mh-fNl"/>
-                <constraint firstItem="31r-Qj-xJX" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="o6Y-IN-nn7"/>
-                <constraint firstItem="31r-Qj-xJX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="uaD-Y6-vBt"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="k3c-TO-bAp" secondAttribute="bottom" constant="10" id="1Hr-ls-TnD"/>
+                <constraint firstItem="PLN-Mu-Sfw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Uif-8T-xlg"/>
+                <constraint firstItem="k3c-TO-bAp" firstAttribute="height" secondItem="fnl-2z-Ty3" secondAttribute="height" multiplier="0.15" id="Yck-Eq-M1E"/>
+                <constraint firstItem="PLN-Mu-Sfw" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" id="ZBe-vV-Dc1"/>
+                <constraint firstItem="PLN-Mu-Sfw" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="aWF-A0-jVH"/>
+                <constraint firstItem="k3c-TO-bAp" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="bNQ-e7-BZA"/>
+                <constraint firstItem="k3c-TO-bAp" firstAttribute="top" secondItem="PLN-Mu-Sfw" secondAttribute="bottom" constant="15" id="dT0-xu-Um1"/>
+                <constraint firstItem="k3c-TO-bAp" firstAttribute="width" secondItem="fnl-2z-Ty3" secondAttribute="width" multiplier="0.9" id="faD-Be-r7m"/>
             </constraints>
-            <point key="canvasLocation" x="228" y="-146"/>
+            <point key="canvasLocation" x="-342" y="-121"/>
         </view>
     </objects>
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemGreenColor">
+            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
