@@ -22,7 +22,6 @@
 		F66CC19328A65058004A39A7 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC19228A65058004A39A7 /* Rectangle.swift */; };
 		F66CC19528A8055C004A39A7 /* colorData.json in Resources */ = {isa = PBXBuildFile; fileRef = F66CC19428A8055C004A39A7 /* colorData.json */; };
 		F66CC19828A805D3004A39A7 /* ColorJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC19728A805D3004A39A7 /* ColorJSON.swift */; };
-		F66CC19B28A8087A004A39A7 /* ColorLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC19A28A8087A004A39A7 /* ColorLoader.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,7 +41,6 @@
 		F66CC19228A65058004A39A7 /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		F66CC19428A8055C004A39A7 /* colorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colorData.json; sourceTree = "<group>"; };
 		F66CC19728A805D3004A39A7 /* ColorJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorJSON.swift; sourceTree = "<group>"; };
-		F66CC19A28A8087A004A39A7 /* ColorLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorLoader.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,7 +153,6 @@
 			isa = PBXGroup;
 			children = (
 				F66CC19428A8055C004A39A7 /* colorData.json */,
-				F66CC19A28A8087A004A39A7 /* ColorLoader.swift */,
 			);
 			path = JsonData;
 			sourceTree = "<group>";
@@ -245,7 +242,6 @@
 				F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */,
 				F66CC19328A65058004A39A7 /* Rectangle.swift in Sources */,
 				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
-				F66CC19B28A8087A004A39A7 /* ColorLoader.swift in Sources */,
 				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
 				F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */,
 				F66CC18E28A62F8F004A39A7 /* AppCoordinator.swift in Sources */,
