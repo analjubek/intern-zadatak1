@@ -22,7 +22,7 @@ class RectangleViewController: UIViewController {
     
     var randomInt = Int.random(in: 0..<256)
     var r = 255
-    var g = 90
+    var g = 50
     var b = 50
     var colors: [ColorJSON] = []
     
@@ -34,9 +34,8 @@ class RectangleViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-
-        makeCollection(rectangle: rectangle!)
         
+        makeCollection(rectangle: rectangle!)
         var gesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
     }
     
@@ -45,7 +44,8 @@ class RectangleViewController: UIViewController {
     }
 
     func makeCollection(rectangle: Rectangle){
-        loadJSON()
+        
+        loadJSON() // completion funkcije --> kad se izvrsi, izvrsiti sve ostalo
         
         changeItemSize()
         flowLayout.minimumLineSpacing = 5
@@ -57,10 +57,7 @@ class RectangleViewController: UIViewController {
         cvRectangles.dataSource = self
         cvRectangles.delegate = self
         cvRectangles.frame = sizeView.bounds
-        
-        print("horizontal edge: " + String(rectangle.horizontalEdge))
-        print("vertical edge: " + String(rectangle.verticalEdge))
-        
+    
     }
     
     func changeItemSize(){
@@ -75,8 +72,11 @@ class RectangleViewController: UIViewController {
     }
     
     @IBAction func btnChangeColor(_ sender: UIButton) {
-        randomInt = Int.random(in: 0..<256)
-        getColorById(colorId: randomInt)
+        if(!selectedItems.isEmpty){
+            let cell1 = self.cvRectangles.cellForItem(at: selectedItems[0])
+            cell1?.layer.borderWidth = 0.0
+            selectedItems.removeAll()
+        }
         cvRectangles.reloadData()
     }
     
@@ -128,15 +128,29 @@ class RectangleViewController: UIViewController {
     }
     
     func replaceCells(indexPath1: IndexPath, indexPath2: IndexPath){
-        cvRectangles.performBatchUpdates {
-            self.cvRectangles.moveItem(at: indexPath1, to: indexPath2)
-        } completion: { bool in
-            self.cvRectangles.moveItem(at: indexPath2, to: indexPath1)
-            
+        if(indexPath1 != indexPath2){
+            cvRectangles.performBatchUpdates {
+                self.cvRectangles.moveItem(at: indexPath1, to: indexPath2)
+            } completion: { bool in
+                let row: Int
+                if (indexPath1.row < indexPath2.row){
+                    row = (indexPath2.row-1)
+                }
+                else{
+                    row = (indexPath2.row+1)
+                }
+                let indexPath = IndexPath(row: row, section: 0)
+                self.cvRectangles.moveItem(at: indexPath, to: indexPath1)
+                
+                let cell1 = self.cvRectangles.cellForItem(at: indexPath1)
+                cell1?.layer.borderWidth = 0.0
+                let cell2 = self.cvRectangles.cellForItem(at: indexPath2)
+                cell2?.layer.borderWidth = 0.0
+            }
+        }
+        else{
             let cell1 = self.cvRectangles.cellForItem(at: indexPath1)
             cell1?.layer.borderWidth = 0.0
-            let cell2 = self.cvRectangles.cellForItem(at: indexPath2)
-            cell2?.layer.borderWidth = 0.0
         }
     }
 }
@@ -150,9 +164,11 @@ extension RectangleViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        
+        randomInt = Int.random(in: 0..<256)
+        getColorById(colorId: randomInt)
+        
         cell.backgroundColor = UIColor(red: CGFloat(Float(r.self)/255.0), green: CGFloat(Float(g.self)/255.0), blue: CGFloat(Float(b.self)/255.0), alpha: 1.0)
-        print("cell")
-        print(cell)
         return cell
     }
 }
@@ -164,8 +180,6 @@ extension RectangleViewController: UICollectionViewDelegate {
             let cell = collectionView.cellForItem(at: indexPath)
             cell?.layer.borderWidth = 2.0
             cell?.layer.borderColor = UIColor.blue.cgColor
-            print("selected cell")
-            print(indexPath.row)
         }
         if (selectedItems.count == 2){
             let indexPath1 = selectedItems[0]
