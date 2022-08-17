@@ -7,6 +7,7 @@
 
 import Foundation
 import UIKit
+import SwiftUI
 
 class RectangleViewController: UIViewController {
     
@@ -29,7 +30,7 @@ class RectangleViewController: UIViewController {
     var indexPath1: IndexPath?
     var indexPath2: IndexPath?
     var indexPath: IndexPath?
-    //var selectedItems: []
+    var selectedItems: [IndexPath] = []
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
@@ -55,7 +56,6 @@ class RectangleViewController: UIViewController {
         cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
         cvRectangles.dataSource = self
         cvRectangles.delegate = self
-
         cvRectangles.frame = sizeView.bounds
         
         print("horizontal edge: " + String(rectangle.horizontalEdge))
@@ -78,20 +78,6 @@ class RectangleViewController: UIViewController {
         randomInt = Int.random(in: 0..<256)
         getColorById(colorId: randomInt)
         cvRectangles.reloadData()
-    }
-    
-    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
-        let targetIndexPath = cvRectangles!.indexPathForItem(at: gesture.location(in: cvRectangles))
-        print("tap1")
-        if numberOfTaps == 0 && gesture.state == .ended{
-            indexPath1 = targetIndexPath
-            numberOfTaps = 1
-            print("tap")
-        }
-        if numberOfTaps == 1 && gesture.state == .ended {
-            indexPath2 = targetIndexPath
-            numberOfTaps = 0
-        }
     }
     
     func loadJSON(){
@@ -126,6 +112,33 @@ class RectangleViewController: UIViewController {
             }
         }
     }
+    
+    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
+        let targetIndexPath = cvRectangles!.indexPathForItem(at: gesture.location(in: cvRectangles))
+        print("tap1")
+        if numberOfTaps == 0 && gesture.state == .ended{
+            indexPath1 = targetIndexPath
+            numberOfTaps = 1
+            print("tap")
+        }
+        if numberOfTaps == 1 && gesture.state == .ended {
+            indexPath2 = targetIndexPath
+            numberOfTaps = 0
+        }
+    }
+    
+    func replaceCells(indexPath1: IndexPath, indexPath2: IndexPath){
+        cvRectangles.performBatchUpdates {
+            self.cvRectangles.moveItem(at: indexPath1, to: indexPath2)
+        } completion: { bool in
+            self.cvRectangles.moveItem(at: indexPath2, to: indexPath1)
+            
+            let cell1 = self.cvRectangles.cellForItem(at: indexPath1)
+            cell1?.layer.borderWidth = 0.0
+            let cell2 = self.cvRectangles.cellForItem(at: indexPath2)
+            cell2?.layer.borderWidth = 0.0
+        }
+    }
 }
 
 extension RectangleViewController: UICollectionViewDataSource {
@@ -138,37 +151,32 @@ extension RectangleViewController: UICollectionViewDataSource {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         cell.backgroundColor = UIColor(red: CGFloat(Float(r.self)/255.0), green: CGFloat(Float(g.self)/255.0), blue: CGFloat(Float(b.self)/255.0), alpha: 1.0)
+        print("cell")
+        print(cell)
         return cell
-    }
-    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        //let item cell.r
-        
-        /*let helperIndexPath: IndexPath
-        helperIndexPath = sourceIndexPath
-        sourceIndexPath = destinationIndexPath
-        destinationIndexPath = helperIndexPath*/
     }
 }
 
 extension RectangleViewController: UICollectionViewDelegate {
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 2.0
-        cell?.layer.borderColor = UIColor.blue.cgColor
+        if (selectedItems.count < 2){
+            selectedItems.append(indexPath)
+            let cell = collectionView.cellForItem(at: indexPath)
+            cell?.layer.borderWidth = 2.0
+            cell?.layer.borderColor = UIColor.blue.cgColor
+            print("selected cell")
+            print(indexPath.row)
+        }
+        if (selectedItems.count == 2){
+            let indexPath1 = selectedItems[0]
+            let indexPath2 = selectedItems[1]
+            
+            replaceCells(indexPath1: indexPath1, indexPath2: indexPath2)
+            
+            selectedItems.removeAll()
+        }
     }
-    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
-        let cell = collectionView.cellForItem(at: indexPath)
-        cell?.layer.borderWidth = 0.0
-    }
-    /*func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
-        return true
-    }*/
 }
-/*
-extension RectangleViewController: UICollectionViewDelegateFlowLayout {
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let row = indexPath.row + 1
-        return CGSize(width: row * 10, height: row * 10)
-    }
-}*/
+
+
+
