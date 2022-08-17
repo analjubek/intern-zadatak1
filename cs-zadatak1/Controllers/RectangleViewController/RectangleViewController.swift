@@ -17,21 +17,22 @@ class RectangleViewController: UIViewController {
     
     @IBOutlet weak var sizeView: UIView!
     
+    let flowLayout = UICollectionViewFlowLayout()
+    
     var randomInt = Int.random(in: 0..<256)
+    var r = 255
+    var g = 90
+    var b = 50
+    var colors: [ColorJSON] = []
     
     var numberOfTaps = 0
     var indexPath1: IndexPath?
     var indexPath2: IndexPath?
+    var indexPath: IndexPath?
+    //var selectedItems: []
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        print("height")
-        //print(cvHeight)
-        print(cvRectangles.frame.height)
-        print("width")
-        //print(cvWidth)
-        print(cvRectangles.frame.width)
 
         makeCollection(rectangle: rectangle!)
         
@@ -40,46 +41,15 @@ class RectangleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //let colorsData = ColorLoader().colorData
-        //print("colorsData")
-        //print(colorsData)
-        //var cvHeight = Int(sizeView.bounds.height)
-        //var cvWidth = Int(sizeView.bounds.width)
-        
-        //override viewDidAppear
     }
-    
-    //za promjenu veličine
-    /*override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        cvRectangles.frame = sizeView.bounds
-    }*/
-    
+
     func makeCollection(rectangle: Rectangle){
-        guard let sourcesURL = Bundle.main.url(forResource: "colorData", withExtension: "json") else{
-            fatalError("could not found colorData.json")
-        }
-
-        guard let colorData = try? Data(contentsOf: sourcesURL) else{
-            fatalError("could not convert data")
-        }
-
-        let decoder = JSONDecoder()
-        guard let colors = try? decoder.decode(Colors.self, from: colorData) else{
-            fatalError("there was problem decoding the data")
-        }
-
-        print(colors.colors)
+        loadJSON()
         
-        // preko url sessiona fetchat podatke i dekodirati ih
-        // grana local i remote fetch --> novi branch
-    
-        
-        let flowLayout = UICollectionViewFlowLayout()
-
-        flowLayout.itemSize = CGSize(width: (cvRectangles.frame.width/CGFloat(rectangle.horizontalEdge))-5, height: (cvRectangles.frame.height/CGFloat(rectangle.verticalEdge))-5)
+        changeItemSize()
         flowLayout.minimumLineSpacing = 5
         flowLayout.minimumInteritemSpacing = 5
+        
         
         cvRectangles.collectionViewLayout = flowLayout
         cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
@@ -90,12 +60,24 @@ class RectangleViewController: UIViewController {
         
         print("horizontal edge: " + String(rectangle.horizontalEdge))
         print("vertical edge: " + String(rectangle.verticalEdge))
+        
+    }
+    
+    func changeItemSize(){
+        flowLayout.itemSize = CGSize(width: (cvRectangles.frame.width/CGFloat(rectangle!.horizontalEdge))-5, height: (cvRectangles.frame.height/CGFloat(rectangle!.verticalEdge))-5)
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.changeItemSize()
+        }
     }
     
     @IBAction func btnChangeColor(_ sender: UIButton) {
         randomInt = Int.random(in: 0..<256)
-        print("randomInt")
-        print(randomInt)
+        getColorById(colorId: randomInt)
+        cvRectangles.reloadData()
     }
     
     @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
@@ -111,6 +93,39 @@ class RectangleViewController: UIViewController {
             numberOfTaps = 0
         }
     }
+    
+    func loadJSON(){
+        guard let url = URL(string: "https://jonasjacek.github.io/colors/data.json") else{
+            return
+        }
+        let request = URLRequest(url: url)
+        URLSession.shared.dataTask(with: request){
+            (data, response, error) in
+            if let error = error {
+                print(error.localizedDescription)
+                return
+            }
+            guard let data = data else{
+                return
+            }
+            let decoder = JSONDecoder()
+            guard let decodedData = try? decoder.decode([ColorJSON].self, from: data) else{
+                return
+            }
+            
+            self.colors = decodedData
+        }.resume()
+    }
+    
+    func getColorById(colorId: Int){
+        for color in colors{
+            if (color.colorID == colorId){
+                self.r = color.rgb.r
+                self.g = color.rgb.g
+                self.b = color.rgb.b
+            }
+        }
+    }
 }
 
 extension RectangleViewController: UICollectionViewDataSource {
@@ -122,7 +137,7 @@ extension RectangleViewController: UICollectionViewDataSource {
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
-        cell.backgroundColor = .purple
+        cell.backgroundColor = UIColor(red: CGFloat(Float(r.self)/255.0), green: CGFloat(Float(g.self)/255.0), blue: CGFloat(Float(b.self)/255.0), alpha: 1.0)
         return cell
     }
     func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
@@ -136,11 +151,24 @@ extension RectangleViewController: UICollectionViewDataSource {
 }
 
 extension RectangleViewController: UICollectionViewDelegate {
-    /*func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-    // Logic when cell is selected
-    }*/
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 2.0
+        cell?.layer.borderColor = UIColor.blue.cgColor
+    }
+    func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.layer.borderWidth = 0.0
+    }
     /*func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
         return true
     }*/
-
 }
+/*
+extension RectangleViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let row = indexPath.row + 1
+        return CGSize(width: row * 10, height: row * 10)
+    }
+}*/

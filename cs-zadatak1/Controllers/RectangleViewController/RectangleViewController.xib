@@ -36,8 +36,8 @@
                     <rect key="frame" x="0.0" y="44" width="414" height="670.5"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="gbb-tq-XYf">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="670.5"/>
-                            <color key="backgroundColor" systemColor="systemGreenColor"/>
+                            <rect key="frame" x="10" y="0.0" width="394" height="670.5"/>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="Z2L-gg-nfS">
                                 <size key="itemSize" width="128" height="128"/>
                                 <size key="headerReferenceSize" width="0.0" height="0.0"/>
@@ -46,12 +46,12 @@
                             </collectionViewFlowLayout>
                         </collectionView>
                     </subviews>
-                    <color key="backgroundColor" systemColor="systemPinkColor"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="gbb-tq-XYf" firstAttribute="top" secondItem="PLN-Mu-Sfw" secondAttribute="top" id="Ajg-UP-0fT" userLabel="Collection View.top = View.top"/>
-                        <constraint firstAttribute="trailing" secondItem="gbb-tq-XYf" secondAttribute="trailing" id="NFV-Nz-1HL"/>
+                        <constraint firstAttribute="trailing" secondItem="gbb-tq-XYf" secondAttribute="trailing" constant="10" id="NFV-Nz-1HL"/>
                         <constraint firstAttribute="bottom" secondItem="gbb-tq-XYf" secondAttribute="bottom" id="fmW-Rd-KNx"/>
-                        <constraint firstItem="gbb-tq-XYf" firstAttribute="leading" secondItem="PLN-Mu-Sfw" secondAttribute="leading" id="tSF-cI-zmu"/>
+                        <constraint firstItem="gbb-tq-XYf" firstAttribute="leading" secondItem="PLN-Mu-Sfw" secondAttribute="leading" constant="10" id="tSF-cI-zmu"/>
                     </constraints>
                 </view>
             </subviews>
@@ -73,12 +73,6 @@
     <resources>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemGreenColor">
-            <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPinkColor">
-            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

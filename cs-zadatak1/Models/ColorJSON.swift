@@ -8,24 +8,17 @@
 import Foundation
 
 struct ColorJSON: Codable {
-    let colorID: Int?
-    let hexString: String?
-    let rgb: RGB?
-    let hsl: Hsl?
-    let name: String?
+    let colorID: Int
+    let rgb: RGB
 
     enum CodingKeys: String, CodingKey {
         case colorID = "colorId"
-        case hexString, rgb, hsl, name
+        case rgb
     }
 }
 
-struct Hsl: Codable {
-    let h, s, l: Int?
-}
-
 struct RGB: Codable {
-    let r, g, b: Int?
+    let r, g, b: Int
 }
 
 struct Colors: Codable{
