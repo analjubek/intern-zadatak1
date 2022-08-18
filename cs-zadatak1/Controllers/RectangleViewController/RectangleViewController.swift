@@ -21,19 +21,19 @@ class RectangleViewController: UIViewController {
     let flowLayout = UICollectionViewFlowLayout()
     
     var randomInt: Int!
+    
     var r: Int!
     var g: Int!
     var b: Int!
     
     var colors: [ColorJSON] = []
-    var colorsJson: [ColorJSON] = []
     
     var selectedItems: [IndexPath] = []
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        loadJSON(url: "https://jonasjacek.github.io/colors/data.json", dataModel: colors){ colors in
+        loadJsonFromUrl(url: "https://jonasjacek.github.io/colors/data.json", dataModel: colors){ colors in
             DispatchQueue.main.async {
                 self.colors = colors
                 self.makeCollection(rectangle: self.rectangle!)
@@ -62,8 +62,6 @@ class RectangleViewController: UIViewController {
         self.cvRectangles.dataSource = self
         self.cvRectangles.delegate = self
         self.cvRectangles.frame = self.sizeView.bounds
-        
-        var gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTapGesture(_:)))
     }
     
     func changeItemSize(){
@@ -114,15 +112,6 @@ class RectangleViewController: UIViewController {
             selectedItems.removeAll()
         }
         cvRectangles.reloadData()
-    }
-
-    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
-        /*let targetIndexPath = cvRectangles!.indexPathForItem(at: gesture.location(in: cvRectangles))
-        
-         if gesture.state == .ended{
-         
-         }
-         */
     }
 }
 

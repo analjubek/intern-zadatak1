@@ -13,7 +13,7 @@ extension UIViewController{
             return self.init(nibName: String(describing: self), bundle: bundle)
     }
     
-    func loadJSON<T: Codable>(url: String, dataModel: T, completion: @escaping (T) -> ()) {
+    func loadJsonFromUrl<T: Codable>(url: String, dataModel: T, completion: @escaping (T) -> ()) {
         var decodedData = dataModel
         
         guard let url = URL(string: url) else{
