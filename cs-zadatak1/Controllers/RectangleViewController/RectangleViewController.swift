@@ -35,8 +35,11 @@ class RectangleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        makeCollection(rectangle: rectangle!)
-        var gesture = UITapGestureRecognizer(target: self, action: #selector(handleTapGesture(_:)))
+        loadJSON{
+            DispatchQueue.main.async {
+                self.makeCollection(rectangle: self.rectangle!)
+            }
+        }
     }
     
     override func viewDidLoad() {
@@ -44,20 +47,17 @@ class RectangleViewController: UIViewController {
     }
 
     func makeCollection(rectangle: Rectangle){
+        self.changeItemSize()
+        self.flowLayout.minimumLineSpacing = 5
+        self.flowLayout.minimumInteritemSpacing = 5
         
-        loadJSON() // completion funkcije --> kad se izvrsi, izvrsiti sve ostalo
+        self.cvRectangles.collectionViewLayout = self.flowLayout
+        self.cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: self.cellId)
+        self.cvRectangles.dataSource = self
+        self.cvRectangles.delegate = self
+        self.cvRectangles.frame = self.sizeView.bounds
         
-        changeItemSize()
-        flowLayout.minimumLineSpacing = 5
-        flowLayout.minimumInteritemSpacing = 5
-        
-        
-        cvRectangles.collectionViewLayout = flowLayout
-        cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-        cvRectangles.dataSource = self
-        cvRectangles.delegate = self
-        cvRectangles.frame = sizeView.bounds
-    
+        var gesture = UITapGestureRecognizer(target: self, action: #selector(self.handleTapGesture(_:)))
     }
     
     func changeItemSize(){
@@ -80,7 +80,7 @@ class RectangleViewController: UIViewController {
         cvRectangles.reloadData()
     }
     
-    func loadJSON(){
+    func loadJSON(completion: @escaping () -> ()){
         guard let url = URL(string: "https://jonasjacek.github.io/colors/data.json") else{
             return
         }
@@ -100,6 +100,7 @@ class RectangleViewController: UIViewController {
             }
             
             self.colors = decodedData
+            completion()
         }.resume()
     }
     
