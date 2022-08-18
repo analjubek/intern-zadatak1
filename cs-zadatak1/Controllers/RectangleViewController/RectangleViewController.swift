@@ -20,23 +20,22 @@ class RectangleViewController: UIViewController {
     
     let flowLayout = UICollectionViewFlowLayout()
     
-    var randomInt = Int.random(in: 0..<256)
-    var r = 255
-    var g = 50
-    var b = 50
-    var colors: [ColorJSON] = []
+    var randomInt: Int!
+    var r: Int!
+    var g: Int!
+    var b: Int!
     
-    var numberOfTaps = 0
-    var indexPath1: IndexPath?
-    var indexPath2: IndexPath?
-    var indexPath: IndexPath?
+    var colors: [ColorJSON] = []
+    var colorsJson: [ColorJSON] = []
+    
     var selectedItems: [IndexPath] = []
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        loadJSON{
+        loadJSON(url: "https://jonasjacek.github.io/colors/data.json", dataModel: colors){ colors in
             DispatchQueue.main.async {
+                self.colors = colors
                 self.makeCollection(rectangle: self.rectangle!)
             }
         }
@@ -44,6 +43,13 @@ class RectangleViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
+        super.viewWillTransition(to: size, with: coordinator)
+        coordinator.animate(alongsideTransition: nil) { _ in
+            self.changeItemSize()
+        }
     }
 
     func makeCollection(rectangle: Rectangle){
@@ -64,25 +70,21 @@ class RectangleViewController: UIViewController {
         flowLayout.itemSize = CGSize(width: (cvRectangles.frame.width/CGFloat(rectangle!.horizontalEdge))-5, height: (cvRectangles.frame.height/CGFloat(rectangle!.verticalEdge))-5)
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        super.viewWillTransition(to: size, with: coordinator)
-        coordinator.animate(alongsideTransition: nil) { _ in
-            self.changeItemSize()
+    func getColorById(colorId: Int){
+        for color in colors{
+            if (color.colorID == colorId){
+                self.r = color.rgb.r
+                self.g = color.rgb.g
+                self.b = color.rgb.b
+            }
         }
     }
     
-    @IBAction func btnChangeColor(_ sender: UIButton) {
-        if(!selectedItems.isEmpty){
-            let cell1 = self.cvRectangles.cellForItem(at: selectedItems[0])
-            cell1?.layer.borderWidth = 0.0
-            selectedItems.removeAll()
-        }
-        cvRectangles.reloadData()
-    }
-    
-    func loadJSON(completion: @escaping () -> ()){
-        guard let url = URL(string: "https://jonasjacek.github.io/colors/data.json") else{
-            return
+    func loadJSON<T: Codable>(url: String, dataModel: T, completion: @escaping (T) -> ()) {
+        var decodedData = dataModel
+        
+        guard let url = URL(string: url) else{
+            return //dataModel
         }
         let request = URLRequest(url: url)
         URLSession.shared.dataTask(with: request){
@@ -95,37 +97,10 @@ class RectangleViewController: UIViewController {
                 return
             }
             let decoder = JSONDecoder()
-            guard let decodedData = try? decoder.decode([ColorJSON].self, from: data) else{
-                return
-            }
-            
-            self.colors = decodedData
-            completion()
+            decodedData = try! decoder.decode(type(of: dataModel), from: data)
+
+            completion(decodedData)
         }.resume()
-    }
-    
-    func getColorById(colorId: Int){
-        for color in colors{
-            if (color.colorID == colorId){
-                self.r = color.rgb.r
-                self.g = color.rgb.g
-                self.b = color.rgb.b
-            }
-        }
-    }
-    
-    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
-        let targetIndexPath = cvRectangles!.indexPathForItem(at: gesture.location(in: cvRectangles))
-        print("tap1")
-        if numberOfTaps == 0 && gesture.state == .ended{
-            indexPath1 = targetIndexPath
-            numberOfTaps = 1
-            print("tap")
-        }
-        if numberOfTaps == 1 && gesture.state == .ended {
-            indexPath2 = targetIndexPath
-            numberOfTaps = 0
-        }
     }
     
     func replaceCells(indexPath1: IndexPath, indexPath2: IndexPath){
@@ -154,6 +129,24 @@ class RectangleViewController: UIViewController {
             cell1?.layer.borderWidth = 0.0
         }
     }
+    
+    @IBAction func btnChangeColor(_ sender: UIButton) {
+        if(!selectedItems.isEmpty){
+            let cell1 = self.cvRectangles.cellForItem(at: selectedItems[0])
+            cell1?.layer.borderWidth = 0.0
+            selectedItems.removeAll()
+        }
+        cvRectangles.reloadData()
+    }
+
+    @objc func handleTapGesture(_ gesture: UITapGestureRecognizer){
+        /*let targetIndexPath = cvRectangles!.indexPathForItem(at: gesture.location(in: cvRectangles))
+        
+         if gesture.state == .ended{
+         
+         }
+         */
+    }
 }
 
 extension RectangleViewController: UICollectionViewDataSource {
@@ -178,6 +171,7 @@ extension RectangleViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if (selectedItems.count < 2){
             selectedItems.append(indexPath)
+            
             let cell = collectionView.cellForItem(at: indexPath)
             cell?.layer.borderWidth = 2.0
             cell?.layer.borderColor = UIColor.blue.cgColor
@@ -187,7 +181,6 @@ extension RectangleViewController: UICollectionViewDelegate {
             let indexPath2 = selectedItems[1]
             
             replaceCells(indexPath1: indexPath1, indexPath2: indexPath2)
-            
             selectedItems.removeAll()
         }
     }

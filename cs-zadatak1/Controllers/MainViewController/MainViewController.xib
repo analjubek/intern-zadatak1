@@ -44,9 +44,9 @@
                                 <action selector="txtInputHorizontalEC:" destination="-1" eventType="editingChanged" id="84n-zJ-HGn"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesena vrijednost mora biti cijeli broj veći od nule." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fV-zN-aVr" userLabel="lblWrongHorizontalEdge">
-                            <rect key="frame" x="31" y="143" width="311" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesena vrijednost mora biti cijeli broj veći od nule i manji ili jednak 10." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9fV-zN-aVr" userLabel="lblWrongHorizontalEdge">
+                            <rect key="frame" x="15.5" y="143" width="342" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
@@ -85,9 +85,9 @@
                                 <action selector="txtInputVerticalEC:" destination="-1" eventType="editingChanged" id="AMY-6C-WMa"/>
                             </connections>
                         </textField>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesena vrijednost mora biti cijeli broj veći od nule." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbe-MM-ub0" userLabel="lblWrongVerticalEdge">
-                            <rect key="frame" x="31" y="143" width="311" height="16"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Unesena vrijednost mora biti cijeli broj veći od nule i manji ili jednak 10." lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sbe-MM-ub0" userLabel="lblWrongVerticalEdge">
+                            <rect key="frame" x="15.5" y="143" width="342" height="12"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="10"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>

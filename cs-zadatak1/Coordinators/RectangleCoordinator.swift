@@ -34,11 +34,4 @@ class RectangleCoordinator: Coordinator{
     func start() {
         navigationController.pushViewController(rectangleViewController, animated: true)
     }
-    
-    //lazy var koja se inicijalizira u startu viewController, u startu ga pushati na navigation controller
-    
-    //pritiskom na button inicijaliziramo ovaj koordinator
 }
-
-
-//NAVIGATION CONTROLLER

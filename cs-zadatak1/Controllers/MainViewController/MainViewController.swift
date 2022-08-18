@@ -62,30 +62,25 @@ class MainViewController: UIViewController {
     
     @IBAction func txtInputHorizontalEC(_ sender: UITextField) {
         let horizontalInput = txtHorizontalEdge.text!
-        //print(horizontalInput)
         
         if(isIntegerNumber(horizontalInput)){
-            //print("broj")
             lblWrongHorizontalEdge.isHidden = true
             bolHorizontal = true
             shouldEnableButton()
             
             horizontalInputInt = Int(horizontalInput)!
-            if(horizontalInputInt <= 0){
-                //print("nula ili manje")
+            if(horizontalInputInt <= 0 || horizontalInputInt > 10){
                 lblWrongHorizontalEdge.isHidden = false
                 bolHorizontal = false
                 disableButton()
             }
         }
         else if (horizontalInput.isEmpty){
-            //print("prazno")
             lblWrongHorizontalEdge.isHidden = true
             bolHorizontal = false
             disableButton()
         }
         else{
-            //print("nije broj")
             lblWrongHorizontalEdge.isHidden = false
             bolHorizontal = false
             disableButton()
@@ -94,31 +89,26 @@ class MainViewController: UIViewController {
     
     @IBAction func txtInputVerticalEC(_ sender: UITextField) {
         let verticalInput = txtVerticalEdge.text!
-        //print(verticalInput)
         
         if(isIntegerNumber(verticalInput)){
-            //print("broj")
             lblWrongVerticalEdge.isHidden = true
             bolVertical = true
             shouldEnableButton()
             
             verticalInputInt = Int(verticalInput)!
-            if(verticalInputInt <= 0){
-                //print("nula ili manje")
+            if(verticalInputInt <= 0 || verticalInputInt > 10){
                 lblWrongVerticalEdge.isHidden = false
                 bolVertical = false
                 disableButton()
             }
         }
         else if (verticalInput.isEmpty){
-            //print("prazno")
             lblWrongVerticalEdge.isHidden = true
             lblWrongVerticalEdge.isHidden = true
             bolVertical = false
             disableButton()
         }
         else{
-            //print("nije broj")
             lblWrongVerticalEdge.isHidden = false
             bolVertical = false
             disableButton()
@@ -132,7 +122,6 @@ class MainViewController: UIViewController {
         coordinator.childCoordinators.append(coordinator)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
-        //print("Evo me")
     }
     
     func isIntegerNumber(_ text: String) -> Bool{
