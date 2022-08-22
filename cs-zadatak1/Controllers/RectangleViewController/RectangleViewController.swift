@@ -38,7 +38,6 @@ class RectangleViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        //deleteAllData(entity: "CoreColor")
         fetchColorsFromCore()
         
         if(self.coreColors == []){
@@ -46,11 +45,6 @@ class RectangleViewController: UIViewController {
                 DispatchQueue.main.async {
                     self.colors = colors
                     self.saveJsonToCore()
-                    print("prazno")
-                    //self.saveColorToCore(id: 5, r: 20, g: 8, b: 4)
-                    //self.fetchColorsFromCore()
-                    //self.deleteAllData(entity: "CoreColor")
-                    //.fetchColorByIdFromCore(colorId: 5)
                     self.makeCollection(rectangle: self.rectangle!)
                 }
             }
@@ -59,8 +53,6 @@ class RectangleViewController: UIViewController {
             self.makeCollection(rectangle: self.rectangle!)
         }
     }
-            
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -74,9 +66,6 @@ class RectangleViewController: UIViewController {
     }
     
     func saveColorToCore(id: Int, r: Int, g: Int, b: Int){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
         let entity = NSEntityDescription.entity(forEntityName: "CoreColor", in: context)!
           
         let color = NSManagedObject(entity: entity, insertInto: context)
@@ -88,8 +77,6 @@ class RectangleViewController: UIViewController {
           
         do {
             try context.save()
-            //coreColors.append(color)
-            print("Saved.")
             
         } catch let error as NSError {
             print("Could not save. \(error), \(error.userInfo)")
@@ -103,29 +90,17 @@ class RectangleViewController: UIViewController {
     }
     
     func fetchColorsFromCore(){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
         let fetchRequest =
           NSFetchRequest<NSManagedObject>(entityName: "CoreColor")
         
         do {
             self.coreColors = try context.fetch(fetchRequest)
-            print("coreColors")
-            print(coreColors)
- 
         } catch let error as NSError {
             print("Could not fetch. \(error), \(error.userInfo)")
         }
     }
     
-    // get color by id from core
     func fetchColorByIdFromCore(colorId: Int){
-        guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else {
-            return
-        }
-        
         let fetchRequest =
           NSFetchRequest<NSManagedObject>(entityName: "CoreColor")
         
@@ -162,17 +137,6 @@ class RectangleViewController: UIViewController {
     func changeItemSize(){
         flowLayout.itemSize = CGSize(width: (cvRectangles.frame.width/CGFloat(rectangle!.horizontalEdge))-5, height: (cvRectangles.frame.height/CGFloat(rectangle!.verticalEdge))-5)
     }
-    
-    // get color by id from json
-    /*func getColorById(colorId: Int){
-        for color in colors{
-            if (color.colorID == colorId){
-                self.r = color.rgb.r
-                self.g = color.rgb.g
-                self.b = color.rgb.b
-            }
-        }
-    }*/
     
     func replaceCells(indexPath1: IndexPath, indexPath2: IndexPath){
         if(indexPath1 != indexPath2){
@@ -222,7 +186,6 @@ extension RectangleViewController: UICollectionViewDataSource {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
         
         randomInt = Int.random(in: 0..<256)
-        //getColorById(colorId: randomInt)
         fetchColorByIdFromCore(colorId: randomInt)
         
         cell.backgroundColor = UIColor(red: CGFloat(Float(r.self)/255.0), green: CGFloat(Float(g.self)/255.0), blue: CGFloat(Float(b.self)/255.0), alpha: 1.0)

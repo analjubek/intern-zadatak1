@@ -16,10 +16,10 @@ extension CoreColor {
         return NSFetchRequest<CoreColor>(entityName: "CoreColor")
     }
 
+    @NSManaged public var b: Int16
+    @NSManaged public var g: Int16
     @NSManaged public var id: Int16
     @NSManaged public var r: Int16
-    @NSManaged public var g: Int16
-    @NSManaged public var b: Int16
 
 }
 
