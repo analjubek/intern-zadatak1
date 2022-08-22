@@ -22,6 +22,9 @@
 		F66CC19328A65058004A39A7 /* Rectangle.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC19228A65058004A39A7 /* Rectangle.swift */; };
 		F66CC19528A8055C004A39A7 /* colorData.json in Resources */ = {isa = PBXBuildFile; fileRef = F66CC19428A8055C004A39A7 /* colorData.json */; };
 		F66CC19828A805D3004A39A7 /* ColorJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC19728A805D3004A39A7 /* ColorJSON.swift */; };
+		F68DAA2D28B385C5003327C0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA2B28B385C5003327C0 /* DataModel.xcdatamodeld */; };
+		F68DAA3028B38627003327C0 /* CoreColor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA2E28B38627003327C0 /* CoreColor+CoreDataClass.swift */; };
+		F68DAA3128B38627003327C0 /* CoreColor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA2F28B38627003327C0 /* CoreColor+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -41,6 +44,9 @@
 		F66CC19228A65058004A39A7 /* Rectangle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rectangle.swift; sourceTree = "<group>"; };
 		F66CC19428A8055C004A39A7 /* colorData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = colorData.json; sourceTree = "<group>"; };
 		F66CC19728A805D3004A39A7 /* ColorJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorJSON.swift; sourceTree = "<group>"; };
+		F68DAA2C28B385C5003327C0 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
+		F68DAA2E28B38627003327C0 /* CoreColor+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreColor+CoreDataClass.swift"; sourceTree = "<group>"; };
+		F68DAA2F28B38627003327C0 /* CoreColor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreColor+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +80,7 @@
 		F664089428A1060B00FC2B62 /* cs-zadatak1 */ = {
 			isa = PBXGroup;
 			children = (
+				F66CC1CF28AF89D9004A39A7 /* CoreDataModels */,
 				F66CC19928A80845004A39A7 /* JsonData */,
 				F66CC18F28A648EC004A39A7 /* Models */,
 				F66CC18A28A5274A004A39A7 /* Extensions */,
@@ -84,6 +91,7 @@
 				F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */,
 				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
 				F66408A328A1060C00FC2B62 /* Info.plist */,
+				F68DAA2B28B385C5003327C0 /* DataModel.xcdatamodeld */,
 			);
 			path = "cs-zadatak1";
 			sourceTree = "<group>";
@@ -155,6 +163,23 @@
 				F66CC19428A8055C004A39A7 /* colorData.json */,
 			);
 			path = JsonData;
+			sourceTree = "<group>";
+		};
+		F66CC1CF28AF89D9004A39A7 /* CoreDataModels */ = {
+			isa = PBXGroup;
+			children = (
+				F66CC1D028AF89F4004A39A7 /* CoreColor */,
+			);
+			path = CoreDataModels;
+			sourceTree = "<group>";
+		};
+		F66CC1D028AF89F4004A39A7 /* CoreColor */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA2E28B38627003327C0 /* CoreColor+CoreDataClass.swift */,
+				F68DAA2F28B38627003327C0 /* CoreColor+CoreDataProperties.swift */,
+			);
+			path = CoreColor;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -236,11 +261,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68DAA3128B38627003327C0 /* CoreColor+CoreDataProperties.swift in Sources */,
 				F664089628A1060B00FC2B62 /* AppDelegate.swift in Sources */,
 				F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */,
+				F68DAA2D28B385C5003327C0 /* DataModel.xcdatamodeld in Sources */,
 				F66CC19828A805D3004A39A7 /* ColorJSON.swift in Sources */,
 				F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */,
 				F66CC19328A65058004A39A7 /* Rectangle.swift in Sources */,
+				F68DAA3028B38627003327C0 /* CoreColor+CoreDataClass.swift in Sources */,
 				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
 				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
 				F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */,
@@ -471,6 +499,19 @@
 			productName = SnapKit;
 		};
 /* End XCSwiftPackageProductDependency section */
+
+/* Begin XCVersionGroup section */
+		F68DAA2B28B385C5003327C0 /* DataModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				F68DAA2C28B385C5003327C0 /* DataModel.xcdatamodel */,
+			);
+			currentVersion = F68DAA2C28B385C5003327C0 /* DataModel.xcdatamodel */;
+			path = DataModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = F664088A28A1060B00FC2B62 /* Project object */;
 }
