@@ -21,6 +21,8 @@ class MainViewController: UIViewController {
     @IBOutlet weak var lblWrongVerticalEdge: UILabel!
     
     @IBOutlet weak var btnDraw: UIButton!
+    @IBOutlet weak var btnLottieCoffee: UIButton!
+    @IBOutlet weak var btnLottieDownload: UIButton!
     
     private var bolHorizontal: Bool!
     private var bolVertical: Bool!
@@ -123,6 +125,25 @@ class MainViewController: UIViewController {
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
+    
+    
+    @IBAction func btnLottieCoffeeTUI(_ sender: Any) {
+        let coordinator = LottieCoffeeCoordinator(navigationController: self.navigationController!)
+        coordinator.start()
+        coordinator.childCoordinators.append(coordinator)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
+    
+    @IBAction func btnLottieDownloadTUI(_ sender: Any) {
+        let coordinator = LottieDownloadCoordinator(navigationController: self.navigationController!)
+        coordinator.start()
+        coordinator.childCoordinators.append(coordinator)
+        
+        navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
+    }
+    
     
     func isIntegerNumber(_ text: String) -> Bool{
         if let intVal = Int(text){

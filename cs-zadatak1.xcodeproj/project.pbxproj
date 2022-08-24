@@ -24,6 +24,17 @@
 		F68DAA2D28B385C5003327C0 /* DataModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA2B28B385C5003327C0 /* DataModel.xcdatamodeld */; };
 		F68DAA3428B3B3FC003327C0 /* CoreColor+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA3228B3B3FC003327C0 /* CoreColor+CoreDataClass.swift */; };
 		F68DAA3528B3B3FC003327C0 /* CoreColor+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA3328B3B3FC003327C0 /* CoreColor+CoreDataProperties.swift */; };
+		F68DAA4228B3C01D003327C0 /* LottieCoffeeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA4128B3C01D003327C0 /* LottieCoffeeCoordinator.swift */; };
+		F68DAA4728B4AC78003327C0 /* LottieCoffeeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA4528B4AC78003327C0 /* LottieCoffeeViewController.swift */; };
+		F68DAA4828B4AC78003327C0 /* LottieCoffeeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA4628B4AC78003327C0 /* LottieCoffeeViewController.xib */; };
+		F68DAA4B28B4B152003327C0 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = F68DAA4A28B4B152003327C0 /* Lottie */; };
+		F68DAA4E28B4B4EB003327C0 /* coffee.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA4D28B4B4EB003327C0 /* coffee.json */; };
+		F68DAA5128B4D6FF003327C0 /* LottieDownloadViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA4F28B4D6FF003327C0 /* LottieDownloadViewController.swift */; };
+		F68DAA5228B4D6FF003327C0 /* LottieDownloadViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5028B4D6FF003327C0 /* LottieDownloadViewController.xib */; };
+		F68DAA5528B4D759003327C0 /* LottieDownloadCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA5428B4D759003327C0 /* LottieDownloadCoordinator.swift */; };
+		F68DAA5728B4DC11003327C0 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5628B4DC11003327C0 /* download.json */; };
+		F68DAA5928B506A7003327C0 /* like-button.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5828B506A7003327C0 /* like-button.json */; };
+		F68DAA5B28B50CB3003327C0 /* switch.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5A28B50CB3003327C0 /* switch.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +56,16 @@
 		F68DAA2C28B385C5003327C0 /* DataModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = DataModel.xcdatamodel; sourceTree = "<group>"; };
 		F68DAA3228B3B3FC003327C0 /* CoreColor+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreColor+CoreDataClass.swift"; sourceTree = "<group>"; };
 		F68DAA3328B3B3FC003327C0 /* CoreColor+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CoreColor+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		F68DAA4128B3C01D003327C0 /* LottieCoffeeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieCoffeeCoordinator.swift; sourceTree = "<group>"; };
+		F68DAA4528B4AC78003327C0 /* LottieCoffeeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieCoffeeViewController.swift; sourceTree = "<group>"; };
+		F68DAA4628B4AC78003327C0 /* LottieCoffeeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieCoffeeViewController.xib; sourceTree = "<group>"; };
+		F68DAA4D28B4B4EB003327C0 /* coffee.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coffee.json; sourceTree = "<group>"; };
+		F68DAA4F28B4D6FF003327C0 /* LottieDownloadViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieDownloadViewController.swift; sourceTree = "<group>"; };
+		F68DAA5028B4D6FF003327C0 /* LottieDownloadViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieDownloadViewController.xib; sourceTree = "<group>"; };
+		F68DAA5428B4D759003327C0 /* LottieDownloadCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieDownloadCoordinator.swift; sourceTree = "<group>"; };
+		F68DAA5628B4DC11003327C0 /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
+		F68DAA5828B506A7003327C0 /* like-button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "like-button.json"; sourceTree = "<group>"; };
+		F68DAA5A28B50CB3003327C0 /* switch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = switch.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,6 +74,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F66408BF28A271D800FC2B62 /* SnapKit in Frameworks */,
+				F68DAA4B28B4B152003327C0 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -78,6 +100,7 @@
 		F664089428A1060B00FC2B62 /* cs-zadatak1 */ = {
 			isa = PBXGroup;
 			children = (
+				F68DAA4C28B4B4B8003327C0 /* Assets */,
 				F68DAA3628B3B406003327C0 /* CoreData */,
 				F66CC18F28A648EC004A39A7 /* Models */,
 				F66CC18A28A5274A004A39A7 /* Extensions */,
@@ -86,7 +109,6 @@
 				F66CC18228A51ADA004A39A7 /* Controllers */,
 				F664089528A1060B00FC2B62 /* AppDelegate.swift */,
 				F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */,
-				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
 				F66408A328A1060C00FC2B62 /* Info.plist */,
 				F68DAA2B28B385C5003327C0 /* DataModel.xcdatamodeld */,
 			);
@@ -104,6 +126,8 @@
 		F66CC18228A51ADA004A39A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F68DAA5328B4D705003327C0 /* LottieDownloadViewController */,
+				F68DAA3C28B3BC42003327C0 /* LottieCoffeeViewController */,
 				F66CC18428A51B27004A39A7 /* RectangleViewController */,
 				F66CC18328A51B19004A39A7 /* MainViewController */,
 			);
@@ -133,6 +157,8 @@
 			children = (
 				F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */,
 				F66CC18D28A62F8F004A39A7 /* AppCoordinator.swift */,
+				F68DAA4128B3C01D003327C0 /* LottieCoffeeCoordinator.swift */,
+				F68DAA5428B4D759003327C0 /* LottieDownloadCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -163,6 +189,36 @@
 			path = CoreData;
 			sourceTree = "<group>";
 		};
+		F68DAA3C28B3BC42003327C0 /* LottieCoffeeViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA4528B4AC78003327C0 /* LottieCoffeeViewController.swift */,
+				F68DAA4628B4AC78003327C0 /* LottieCoffeeViewController.xib */,
+			);
+			path = LottieCoffeeViewController;
+			sourceTree = "<group>";
+		};
+		F68DAA4C28B4B4B8003327C0 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA5628B4DC11003327C0 /* download.json */,
+				F68DAA5A28B50CB3003327C0 /* switch.json */,
+				F68DAA5828B506A7003327C0 /* like-button.json */,
+				F68DAA4D28B4B4EB003327C0 /* coffee.json */,
+				F664089E28A1060C00FC2B62 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		F68DAA5328B4D705003327C0 /* LottieDownloadViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA4F28B4D6FF003327C0 /* LottieDownloadViewController.swift */,
+				F68DAA5028B4D6FF003327C0 /* LottieDownloadViewController.xib */,
+			);
+			path = LottieDownloadViewController;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -181,6 +237,7 @@
 			name = "cs-zadatak1";
 			packageProductDependencies = (
 				F66408BE28A271D800FC2B62 /* SnapKit */,
+				F68DAA4A28B4B152003327C0 /* Lottie */,
 			);
 			productName = "cs-zadatak1";
 			productReference = F664089228A1060B00FC2B62 /* cs-zadatak1.app */;
@@ -212,6 +269,7 @@
 			mainGroup = F664088928A1060B00FC2B62;
 			packageReferences = (
 				F66408BD28A271D800FC2B62 /* XCRemoteSwiftPackageReference "SnapKit" */,
+				F68DAA4928B4B152003327C0 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = F664089328A1060B00FC2B62 /* Products */;
 			projectDirPath = "";
@@ -227,10 +285,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F68DAA5228B4D6FF003327C0 /* LottieDownloadViewController.xib in Resources */,
 				F66CC17628A4DEC0004A39A7 /* RectangleViewController.xib in Resources */,
 				F66408A228A1060C00FC2B62 /* LaunchScreen.storyboard in Resources */,
 				F66408BC28A24CC300FC2B62 /* MainViewController.xib in Resources */,
+				F68DAA5928B506A7003327C0 /* like-button.json in Resources */,
+				F68DAA4E28B4B4EB003327C0 /* coffee.json in Resources */,
+				F68DAA5728B4DC11003327C0 /* download.json in Resources */,
+				F68DAA4828B4AC78003327C0 /* LottieCoffeeViewController.xib in Resources */,
 				F664089F28A1060C00FC2B62 /* Assets.xcassets in Resources */,
+				F68DAA5B28B50CB3003327C0 /* switch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,15 +308,19 @@
 				F68DAA3528B3B3FC003327C0 /* CoreColor+CoreDataProperties.swift in Sources */,
 				F664089628A1060B00FC2B62 /* AppDelegate.swift in Sources */,
 				F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */,
+				F68DAA4728B4AC78003327C0 /* LottieCoffeeViewController.swift in Sources */,
 				F68DAA2D28B385C5003327C0 /* DataModel.xcdatamodeld in Sources */,
 				F66CC19828A805D3004A39A7 /* ColorJSON.swift in Sources */,
 				F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */,
+				F68DAA5528B4D759003327C0 /* LottieDownloadCoordinator.swift in Sources */,
 				F66CC19328A65058004A39A7 /* Rectangle.swift in Sources */,
 				F68DAA3428B3B3FC003327C0 /* CoreColor+CoreDataClass.swift in Sources */,
 				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
+				F68DAA5128B4D6FF003327C0 /* LottieDownloadViewController.swift in Sources */,
 				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
 				F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */,
 				F66CC18E28A62F8F004A39A7 /* AppCoordinator.swift in Sources */,
+				F68DAA4228B3C01D003327C0 /* LottieCoffeeCoordinator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -470,6 +538,14 @@
 				kind = branch;
 			};
 		};
+		F68DAA4928B4B152003327C0 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios/";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 3.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -477,6 +553,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = F66408BD28A271D800FC2B62 /* XCRemoteSwiftPackageReference "SnapKit" */;
 			productName = SnapKit;
+		};
+		F68DAA4A28B4B152003327C0 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = F68DAA4928B4B152003327C0 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
 		};
 /* End XCSwiftPackageProductDependency section */
 
