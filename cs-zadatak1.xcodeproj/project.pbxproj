@@ -10,8 +10,8 @@
 		F664089628A1060B00FC2B62 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F664089528A1060B00FC2B62 /* AppDelegate.swift */; };
 		F664089F28A1060C00FC2B62 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F664089E28A1060C00FC2B62 /* Assets.xcassets */; };
 		F66408A228A1060C00FC2B62 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */; };
-		F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66408B928A24CC300FC2B62 /* MainViewController.swift */; };
-		F66408BC28A24CC300FC2B62 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66408BA28A24CC300FC2B62 /* MainViewController.xib */; };
+		F66408BB28A24CC300FC2B62 /* MainRectangleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66408B928A24CC300FC2B62 /* MainRectangleViewController.swift */; };
+		F66408BC28A24CC300FC2B62 /* MainRectangleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66408BA28A24CC300FC2B62 /* MainRectangleViewController.xib */; };
 		F66408BF28A271D800FC2B62 /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = F66408BE28A271D800FC2B62 /* SnapKit */; };
 		F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */; };
 		F66CC17628A4DEC0004A39A7 /* RectangleViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */; };
@@ -35,6 +35,15 @@
 		F68DAA5728B4DC11003327C0 /* download.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5628B4DC11003327C0 /* download.json */; };
 		F68DAA5928B506A7003327C0 /* like-button.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5828B506A7003327C0 /* like-button.json */; };
 		F68DAA5B28B50CB3003327C0 /* switch.json in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5A28B50CB3003327C0 /* switch.json */; };
+		F68DAA5F28B619E5003327C0 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA5D28B619E5003327C0 /* MainViewController.swift */; };
+		F68DAA6028B619E5003327C0 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA5E28B619E5003327C0 /* MainViewController.xib */; };
+		F68DAA6228B61C07003327C0 /* MainRectangleCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA6128B61C07003327C0 /* MainRectangleCoordinator.swift */; };
+		F68DAA6628B61D58003327C0 /* LottieMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA6428B61D58003327C0 /* LottieMainViewController.swift */; };
+		F68DAA6728B61D58003327C0 /* LottieMainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA6528B61D58003327C0 /* LottieMainViewController.xib */; };
+		F68DAA6928B61F8C003327C0 /* LottieMainCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA6828B61F8C003327C0 /* LottieMainCoordinator.swift */; };
+		F68DAA7128B622FE003327C0 /* MemoryLeakViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA6F28B622FE003327C0 /* MemoryLeakViewController.swift */; };
+		F68DAA7228B622FE003327C0 /* MemoryLeakViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = F68DAA7028B622FE003327C0 /* MemoryLeakViewController.xib */; };
+		F68DAA7428B62316003327C0 /* MemoryLeakCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA7328B62316003327C0 /* MemoryLeakCoordinator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,8 +52,8 @@
 		F664089E28A1060C00FC2B62 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F66408A128A1060C00FC2B62 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F66408A328A1060C00FC2B62 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		F66408B928A24CC300FC2B62 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
-		F66408BA28A24CC300FC2B62 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		F66408B928A24CC300FC2B62 /* MainRectangleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRectangleViewController.swift; sourceTree = "<group>"; };
+		F66408BA28A24CC300FC2B62 /* MainRectangleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainRectangleViewController.xib; sourceTree = "<group>"; };
 		F66CC17328A4DEC0004A39A7 /* RectangleViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleViewController.swift; sourceTree = "<group>"; };
 		F66CC17428A4DEC0004A39A7 /* RectangleViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = RectangleViewController.xib; sourceTree = "<group>"; };
 		F66CC18028A518C4004A39A7 /* Coordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coordinator.swift; sourceTree = "<group>"; };
@@ -66,6 +75,15 @@
 		F68DAA5628B4DC11003327C0 /* download.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = download.json; sourceTree = "<group>"; };
 		F68DAA5828B506A7003327C0 /* like-button.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "like-button.json"; sourceTree = "<group>"; };
 		F68DAA5A28B50CB3003327C0 /* switch.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = switch.json; sourceTree = "<group>"; };
+		F68DAA5D28B619E5003327C0 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		F68DAA5E28B619E5003327C0 /* MainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MainViewController.xib; sourceTree = "<group>"; };
+		F68DAA6128B61C07003327C0 /* MainRectangleCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainRectangleCoordinator.swift; sourceTree = "<group>"; };
+		F68DAA6428B61D58003327C0 /* LottieMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieMainViewController.swift; sourceTree = "<group>"; };
+		F68DAA6528B61D58003327C0 /* LottieMainViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LottieMainViewController.xib; sourceTree = "<group>"; };
+		F68DAA6828B61F8C003327C0 /* LottieMainCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LottieMainCoordinator.swift; sourceTree = "<group>"; };
+		F68DAA6F28B622FE003327C0 /* MemoryLeakViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLeakViewController.swift; sourceTree = "<group>"; };
+		F68DAA7028B622FE003327C0 /* MemoryLeakViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MemoryLeakViewController.xib; sourceTree = "<group>"; };
+		F68DAA7328B62316003327C0 /* MemoryLeakCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoryLeakCoordinator.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -126,21 +144,24 @@
 		F66CC18228A51ADA004A39A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
+				F68DAA6E28B622E5003327C0 /* MemoryLeakViewController */,
+				F68DAA6328B61D36003327C0 /* LottieMainViewController */,
+				F68DAA5C28B619C9003327C0 /* MainViewController */,
 				F68DAA5328B4D705003327C0 /* LottieDownloadViewController */,
 				F68DAA3C28B3BC42003327C0 /* LottieCoffeeViewController */,
 				F66CC18428A51B27004A39A7 /* RectangleViewController */,
-				F66CC18328A51B19004A39A7 /* MainViewController */,
+				F66CC18328A51B19004A39A7 /* MainRectangleViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
 		};
-		F66CC18328A51B19004A39A7 /* MainViewController */ = {
+		F66CC18328A51B19004A39A7 /* MainRectangleViewController */ = {
 			isa = PBXGroup;
 			children = (
-				F66408B928A24CC300FC2B62 /* MainViewController.swift */,
-				F66408BA28A24CC300FC2B62 /* MainViewController.xib */,
+				F66408B928A24CC300FC2B62 /* MainRectangleViewController.swift */,
+				F66408BA28A24CC300FC2B62 /* MainRectangleViewController.xib */,
 			);
-			path = MainViewController;
+			path = MainRectangleViewController;
 			sourceTree = "<group>";
 		};
 		F66CC18428A51B27004A39A7 /* RectangleViewController */ = {
@@ -159,6 +180,9 @@
 				F66CC18D28A62F8F004A39A7 /* AppCoordinator.swift */,
 				F68DAA4128B3C01D003327C0 /* LottieCoffeeCoordinator.swift */,
 				F68DAA5428B4D759003327C0 /* LottieDownloadCoordinator.swift */,
+				F68DAA6128B61C07003327C0 /* MainRectangleCoordinator.swift */,
+				F68DAA6828B61F8C003327C0 /* LottieMainCoordinator.swift */,
+				F68DAA7328B62316003327C0 /* MemoryLeakCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -217,6 +241,33 @@
 				F68DAA5028B4D6FF003327C0 /* LottieDownloadViewController.xib */,
 			);
 			path = LottieDownloadViewController;
+			sourceTree = "<group>";
+		};
+		F68DAA5C28B619C9003327C0 /* MainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA5D28B619E5003327C0 /* MainViewController.swift */,
+				F68DAA5E28B619E5003327C0 /* MainViewController.xib */,
+			);
+			path = MainViewController;
+			sourceTree = "<group>";
+		};
+		F68DAA6328B61D36003327C0 /* LottieMainViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA6428B61D58003327C0 /* LottieMainViewController.swift */,
+				F68DAA6528B61D58003327C0 /* LottieMainViewController.xib */,
+			);
+			path = LottieMainViewController;
+			sourceTree = "<group>";
+		};
+		F68DAA6E28B622E5003327C0 /* MemoryLeakViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA6F28B622FE003327C0 /* MemoryLeakViewController.swift */,
+				F68DAA7028B622FE003327C0 /* MemoryLeakViewController.xib */,
+			);
+			path = MemoryLeakViewController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -287,13 +338,16 @@
 			files = (
 				F68DAA5228B4D6FF003327C0 /* LottieDownloadViewController.xib in Resources */,
 				F66CC17628A4DEC0004A39A7 /* RectangleViewController.xib in Resources */,
+				F68DAA6728B61D58003327C0 /* LottieMainViewController.xib in Resources */,
 				F66408A228A1060C00FC2B62 /* LaunchScreen.storyboard in Resources */,
-				F66408BC28A24CC300FC2B62 /* MainViewController.xib in Resources */,
+				F66408BC28A24CC300FC2B62 /* MainRectangleViewController.xib in Resources */,
 				F68DAA5928B506A7003327C0 /* like-button.json in Resources */,
+				F68DAA6028B619E5003327C0 /* MainViewController.xib in Resources */,
 				F68DAA4E28B4B4EB003327C0 /* coffee.json in Resources */,
 				F68DAA5728B4DC11003327C0 /* download.json in Resources */,
 				F68DAA4828B4AC78003327C0 /* LottieCoffeeViewController.xib in Resources */,
 				F664089F28A1060C00FC2B62 /* Assets.xcassets in Resources */,
+				F68DAA7228B622FE003327C0 /* MemoryLeakViewController.xib in Resources */,
 				F68DAA5B28B50CB3003327C0 /* switch.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -307,17 +361,23 @@
 			files = (
 				F68DAA3528B3B3FC003327C0 /* CoreColor+CoreDataProperties.swift in Sources */,
 				F664089628A1060B00FC2B62 /* AppDelegate.swift in Sources */,
+				F68DAA7128B622FE003327C0 /* MemoryLeakViewController.swift in Sources */,
 				F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */,
 				F68DAA4728B4AC78003327C0 /* LottieCoffeeViewController.swift in Sources */,
+				F68DAA6928B61F8C003327C0 /* LottieMainCoordinator.swift in Sources */,
 				F68DAA2D28B385C5003327C0 /* DataModel.xcdatamodeld in Sources */,
+				F68DAA6628B61D58003327C0 /* LottieMainViewController.swift in Sources */,
+				F68DAA6228B61C07003327C0 /* MainRectangleCoordinator.swift in Sources */,
 				F66CC19828A805D3004A39A7 /* ColorJSON.swift in Sources */,
 				F66CC18C28A53686004A39A7 /* UIViewController.swift in Sources */,
+				F68DAA5F28B619E5003327C0 /* MainViewController.swift in Sources */,
+				F68DAA7428B62316003327C0 /* MemoryLeakCoordinator.swift in Sources */,
 				F68DAA5528B4D759003327C0 /* LottieDownloadCoordinator.swift in Sources */,
 				F66CC19328A65058004A39A7 /* Rectangle.swift in Sources */,
 				F68DAA3428B3B3FC003327C0 /* CoreColor+CoreDataClass.swift in Sources */,
 				F66CC17528A4DEC0004A39A7 /* RectangleViewController.swift in Sources */,
 				F68DAA5128B4D6FF003327C0 /* LottieDownloadViewController.swift in Sources */,
-				F66408BB28A24CC300FC2B62 /* MainViewController.swift in Sources */,
+				F66408BB28A24CC300FC2B62 /* MainRectangleViewController.swift in Sources */,
 				F66CC18128A518C4004A39A7 /* Coordinator.swift in Sources */,
 				F66CC18E28A62F8F004A39A7 /* AppCoordinator.swift in Sources */,
 				F68DAA4228B3C01D003327C0 /* LottieCoffeeCoordinator.swift in Sources */,
