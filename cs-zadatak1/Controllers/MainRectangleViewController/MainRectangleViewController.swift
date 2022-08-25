@@ -9,7 +9,13 @@ import UIKit
 import SnapKit
 import SwiftUI
 
+protocol MainRectangleViewControllerDelegate: class {
+    func drawButtonSelected(horizontalEdge: Int, verticalEdge: Int)
+}
+
 class MainRectangleViewController: UIViewController {
+    
+    weak var delegate: MainRectangleViewControllerDelegate?
     
     @IBOutlet weak var txtHorizontalEdge: UITextField!
     @IBOutlet weak var txtVerticalEdge: UITextField!
@@ -26,6 +32,7 @@ class MainRectangleViewController: UIViewController {
     
     private var bolHorizontal: Bool!
     private var bolVertical: Bool!
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,77 +69,88 @@ class MainRectangleViewController: UIViewController {
         lblWrongVerticalEdge.isHidden = true
     }
     
-    @IBAction func txtInputHorizontalEC(_ sender: UITextField) {
-        let horizontalInput = txtHorizontalEdge.text!
-        
-        if(isIntegerNumber(horizontalInput)){
-            lblWrongHorizontalEdge.isHidden = true
-            bolHorizontal = true
-            shouldEnableButton()
-            
-            horizontalInputInt = Int(horizontalInput)!
-            if(horizontalInputInt <= 0 || horizontalInputInt > 10){
-                lblWrongHorizontalEdge.isHidden = false
-                bolHorizontal = false
-                disableButton()
+    
+    func setRightInputFlag(_ isRight: Bool, edge: String) {
+        if (edge == "horizontal"){
+            bolHorizontal = isRight
+        }
+        if (edge == "vertical"){
+            bolVertical = isRight
+        }
+    }
+    
+    func isInputRightInteger(input: String, edge: String) -> Bool{
+        if isIntegerNumber(input) {
+            if (edge == "horizontal"){
+                horizontalInputInt = Int(input)!
+                return (horizontalInputInt <= 0 || horizontalInputInt > 10) ? false : true
+            }
+            if (edge == "vertical"){
+                verticalInputInt = Int(input)!
+                return (verticalInputInt <= 0 || verticalInputInt > 10) ? false : true
             }
         }
-        else if (horizontalInput.isEmpty){
-            lblWrongHorizontalEdge.isHidden = true
-            bolHorizontal = false
+        return false
+    }
+    
+    func hideWarning(_ hideWarning: Bool, edge: String){
+        if (edge == "horizontal"){
+            lblWrongHorizontalEdge.isHidden = hideWarning
+        }
+        if (edge == "vertical"){
+            lblWrongVerticalEdge.isHidden = hideWarning
+        }
+    }
+    
+    func inputSetup(rightInput: Bool, warningHidden: Bool, edge: String){
+        setRightInputFlag(rightInput, edge: edge)
+        hideWarning(warningHidden, edge: edge)
+    }
+    
+    @IBAction func txtInputHorizontalEC(_ sender: UITextField) {
+        let horizontalInput = txtHorizontalEdge.text!
+        let edge = "horizontal"
+        
+        if(isInputRightInteger(input: horizontalInput, edge: edge)){
+            inputSetup(rightInput: true, warningHidden: true, edge: edge)
+            shouldEnableButton()
+        }
+        else if horizontalInput.isEmpty{
+            inputSetup(rightInput: false, warningHidden: true, edge: edge)
             disableButton()
         }
         else{
-            lblWrongHorizontalEdge.isHidden = false
-            bolHorizontal = false
+            inputSetup(rightInput: false, warningHidden: false, edge: edge)
             disableButton()
         }
     }
     
     @IBAction func txtInputVerticalEC(_ sender: UITextField) {
         let verticalInput = txtVerticalEdge.text!
+        let edge = "vertical"
         
-        if(isIntegerNumber(verticalInput)){
-            lblWrongVerticalEdge.isHidden = true
-            bolVertical = true
+        if(isInputRightInteger(input: verticalInput, edge: edge)){
+            inputSetup(rightInput: true, warningHidden: true, edge: edge)
             shouldEnableButton()
-            
-            verticalInputInt = Int(verticalInput)!
-            if(verticalInputInt <= 0 || verticalInputInt > 10){
-                lblWrongVerticalEdge.isHidden = false
-                bolVertical = false
-                disableButton()
-            }
         }
-        else if (verticalInput.isEmpty){
-            lblWrongVerticalEdge.isHidden = true
-            lblWrongVerticalEdge.isHidden = true
-            bolVertical = false
+        else if verticalInput.isEmpty{
+            inputSetup(rightInput: false, warningHidden: true, edge: edge)
             disableButton()
         }
         else{
-            lblWrongVerticalEdge.isHidden = false
-            bolVertical = false
+            inputSetup(rightInput: false, warningHidden: false, edge: edge)
             disableButton()
         }
     }
     
     @IBAction func btnDrawTUI(_ sender: UIButton) {
-
-        let coordinator = RectangleCoordinator(navigationController: self.navigationController!, horizontalEdge: horizontalInputInt, verticalEdge: verticalInputInt)
-        coordinator.start()
-        coordinator.childCoordinators.append(coordinator)
+        delegate?.drawButtonSelected(horizontalEdge: horizontalInputInt, verticalEdge: verticalInputInt)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     func isIntegerNumber(_ text: String) -> Bool{
-        if let intVal = Int(text){
-            return true
-        }
-        else{
-            return false
-        }
+        return (Int(text) != nil) ? true : false
     }
     
 }

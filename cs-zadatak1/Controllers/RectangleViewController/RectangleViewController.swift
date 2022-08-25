@@ -13,7 +13,7 @@ import CoreData
 class RectangleViewController: UIViewController {
     
     var rectangle: Rectangle?
-    let cellId = "cellId"
+    static let cellId = "cellId"
     
     @IBOutlet weak var cvRectangles: UICollectionView!
     
@@ -37,14 +37,19 @@ class RectangleViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    }
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
         
-        fetchColorsFromCore()
+        fetchColorsFromCoreData()
+        //deleteAllData(entity: "CoreColor")
         
-        if(self.coreColors == []){
+        if(self.coreColors!.isEmpty){
             loadJsonFromUrl(url: "https://jonasjacek.github.io/colors/data.json", dataModel: colors){ colors in
                 DispatchQueue.main.async {
                     self.colors = colors
-                    self.saveJsonToCore()
+                    self.saveJsonToCoreData()
                     self.makeCollection(rectangle: self.rectangle!)
                 }
             }
@@ -53,11 +58,7 @@ class RectangleViewController: UIViewController {
             self.makeCollection(rectangle: self.rectangle!)
         }
     }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
+
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         super.viewWillTransition(to: size, with: coordinator)
         coordinator.animate(alongsideTransition: nil) { _ in
@@ -65,7 +66,7 @@ class RectangleViewController: UIViewController {
         }
     }
     
-    func saveColorToCore(id: Int, r: Int, g: Int, b: Int){
+    func saveColorToCoreData(id: Int, r: Int, g: Int, b: Int){
         let entity = NSEntityDescription.entity(forEntityName: "CoreColor", in: context)!
           
         let color = NSManagedObject(entity: entity, insertInto: context)
@@ -83,13 +84,13 @@ class RectangleViewController: UIViewController {
         }
     }
     
-    func saveJsonToCore(){
+    func saveJsonToCoreData(){
         for color in colors{
-            self.saveColorToCore(id: color.colorID, r: color.rgb.r, g: color.rgb.g, b: color.rgb.b)
+            self.saveColorToCoreData(id: color.colorID, r: color.rgb.r, g: color.rgb.g, b: color.rgb.b)
         }
     }
     
-    func fetchColorsFromCore(){
+    func fetchColorsFromCoreData(){
         let fetchRequest =
           NSFetchRequest<NSManagedObject>(entityName: "CoreColor")
         
@@ -100,7 +101,7 @@ class RectangleViewController: UIViewController {
         }
     }
     
-    func fetchColorByIdFromCore(colorId: Int){
+    func fetchColorByIdFromCoreData(colorId: Int){
         let fetchRequest =
           NSFetchRequest<NSManagedObject>(entityName: "CoreColor")
         
@@ -128,7 +129,7 @@ class RectangleViewController: UIViewController {
         self.flowLayout.minimumInteritemSpacing = 5
         
         self.cvRectangles.collectionViewLayout = self.flowLayout
-        self.cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: self.cellId)
+        self.cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: RectangleViewController.cellId)
         self.cvRectangles.dataSource = self
         self.cvRectangles.delegate = self
         self.cvRectangles.frame = self.sizeView.bounds
@@ -183,10 +184,10 @@ extension RectangleViewController: UICollectionViewDataSource {
         return (rectangle!.horizontalEdge * rectangle!.verticalEdge)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RectangleViewController.cellId, for: indexPath)
         
         randomInt = Int.random(in: 0..<256)
-        fetchColorByIdFromCore(colorId: randomInt)
+        fetchColorByIdFromCoreData(colorId: randomInt)
         
         cell.backgroundColor = UIColor(red: CGFloat(Float(r.self)/255.0), green: CGFloat(Float(g.self)/255.0), blue: CGFloat(Float(b.self)/255.0), alpha: 1.0)
         return cell

@@ -7,7 +7,14 @@
 
 import UIKit
 
+protocol MainViewControllerDelegate: class {
+    func rectanglesButtonSelected()
+    func lottieButtonSelected()
+    func memoryLeakButtonSelected()
+}
+
 class MainViewController: UIViewController {
+    weak var delegate: MainViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,25 +22,19 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func btnRectanglesTUI(_ sender: Any) {
-        let coordinator = MainRectangleCoordinator(navigationController: self.navigationController!)
-        coordinator.start()
-        coordinator.childCoordinators.append(coordinator)
+        delegate?.rectanglesButtonSelected()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnLottieTUI(_ sender: Any) {
-        let coordinator = LottieMainCoordinator(navigationController: self.navigationController!)
-        coordinator.start()
-        coordinator.childCoordinators.append(coordinator)
+        delegate?.lottieButtonSelected()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnMemoryLeakTUI(_ sender: Any) {
-        let coordinator = MemoryLeakCoordinator(navigationController: self.navigationController!)
-        coordinator.start()
-        coordinator.childCoordinators.append(coordinator)
+        delegate?.memoryLeakButtonSelected()
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }

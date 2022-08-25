@@ -7,7 +7,13 @@
 
 import UIKit
 
+protocol LottieMainViewControllerDelegate: class {
+    func coffeeButtonSelected()
+    func downloadButtonSelected()
+}
+
 class LottieMainViewController: UIViewController {
+    weak var delegate: LottieMainViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -15,16 +21,14 @@ class LottieMainViewController: UIViewController {
     }
 
     @IBAction func btnCoffeeTUI(_ sender: Any) {
-        let coordinator = LottieCoffeeCoordinator(navigationController: self.navigationController!)
-        coordinator.start()
-        coordinator.childCoordinators.append(coordinator)
+        delegate?.coffeeButtonSelected()
+        //coordinator.childCoordinators.append(coordinator)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnDownloadTUI(_ sender: Any) {
-        let coordinator = LottieDownloadCoordinator(navigationController: self.navigationController!)
-        coordinator.start()
+        delegate?.downloadButtonSelected()
         //coordinator.childCoordinators.append(coordinator)
         
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)

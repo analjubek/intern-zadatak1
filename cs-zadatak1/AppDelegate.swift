@@ -23,7 +23,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         self.window!.makeKeyAndVisible()
         
-        let appCoordinator = AppCoordinator(navigationController: appNavC)
+        let appCoordinator = MainViewCoordinator(navigationController: appNavC)
         appCoordinator.start()
         appCoordinator.childCoordinators.append(appCoordinator)
 

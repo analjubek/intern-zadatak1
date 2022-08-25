@@ -12,6 +12,8 @@ class MainRectangleCoordinator: Coordinator{
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
+    private var rectangleCoordinator: RectangleCoordinator?
+    
     lazy var mainRectangleViewController: MainRectangleViewController = {
         let vc = MainRectangleViewController.fromNib(bundle: Bundle.main)
         return vc
@@ -22,6 +24,21 @@ class MainRectangleCoordinator: Coordinator{
     }
     
     func start() {
+        mainRectangleViewController.delegate = self
         navigationController.pushViewController(mainRectangleViewController, animated: true)
     }
+}
+
+extension MainRectangleCoordinator: MainRectangleViewControllerDelegate{
+    func drawButtonSelected(horizontalEdge: Int, verticalEdge: Int) {
+        let rectangleCoordinator = RectangleCoordinator(navigationController: navigationController, horizontalEdge: horizontalEdge, verticalEdge: verticalEdge)
+        
+        rectangleCoordinator.start()
+
+        self.rectangleCoordinator = rectangleCoordinator
+        
+        childCoordinators.append(rectangleCoordinator)
+    }
+    
+    
 }
