@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol MainViewControllerDelegate: class {
+protocol MainViewControllerDelegate: AnyObject {
     func rectanglesButtonSelected()
     func lottieButtonSelected()
     func memoryLeakButtonSelected()

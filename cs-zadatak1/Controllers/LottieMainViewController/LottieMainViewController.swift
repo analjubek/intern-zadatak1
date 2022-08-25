@@ -7,7 +7,7 @@
 
 import UIKit
 
-protocol LottieMainViewControllerDelegate: class {
+protocol LottieMainViewControllerDelegate: AnyObject {
     func coffeeButtonSelected()
     func downloadButtonSelected()
 }

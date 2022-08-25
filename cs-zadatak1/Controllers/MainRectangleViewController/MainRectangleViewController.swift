@@ -9,7 +9,7 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-protocol MainRectangleViewControllerDelegate: class {
+protocol MainRectangleViewControllerDelegate: AnyObject {
     func drawButtonSelected(horizontalEdge: Int, verticalEdge: Int)
 }
 
