@@ -47,6 +47,7 @@
 		F68DAA7728B79364003327C0 /* SingletonData.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA7628B79364003327C0 /* SingletonData.swift */; };
 		F68DAA7928B799CF003327C0 /* Rgb.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA7828B799CF003327C0 /* Rgb.swift */; };
 		F68DAA7B28B7A612003327C0 /* LoadJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA7A28B7A612003327C0 /* LoadJSON.swift */; };
+		F68DAA7F28B8A209003327C0 /* RectangleCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F68DAA7E28B8A209003327C0 /* RectangleCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +91,7 @@
 		F68DAA7628B79364003327C0 /* SingletonData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SingletonData.swift; sourceTree = "<group>"; };
 		F68DAA7828B799CF003327C0 /* Rgb.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rgb.swift; sourceTree = "<group>"; };
 		F68DAA7A28B7A612003327C0 /* LoadJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadJSON.swift; sourceTree = "<group>"; };
+		F68DAA7E28B8A209003327C0 /* RectangleCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RectangleCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,6 +132,7 @@
 				F66CC18A28A5274A004A39A7 /* Extensions */,
 				F66CC18528A51B46004A39A7 /* Coordinators */,
 				F66CC17F28A518AF004A39A7 /* Protocols */,
+				F68DAA7D28B8A1BC003327C0 /* Cells */,
 				F66CC18228A51ADA004A39A7 /* Controllers */,
 				F68DAA7528B790F2003327C0 /* Singleton */,
 				F68DAA7C28B7A6A1003327C0 /* ClassesFunctions */,
@@ -295,6 +298,14 @@
 			path = ClassesFunctions;
 			sourceTree = "<group>";
 		};
+		F68DAA7D28B8A1BC003327C0 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				F68DAA7E28B8A209003327C0 /* RectangleCell.swift */,
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -389,6 +400,7 @@
 				F68DAA7128B622FE003327C0 /* MemoryLeakViewController.swift in Sources */,
 				F66CC18728A51BBD004A39A7 /* RectangleCoordinator.swift in Sources */,
 				F68DAA4728B4AC78003327C0 /* LottieCoffeeViewController.swift in Sources */,
+				F68DAA7F28B8A209003327C0 /* RectangleCell.swift in Sources */,
 				F68DAA6928B61F8C003327C0 /* LottieMainCoordinator.swift in Sources */,
 				F68DAA2D28B385C5003327C0 /* DataModel.xcdatamodeld in Sources */,
 				F68DAA6628B61D58003327C0 /* LottieMainViewController.swift in Sources */,

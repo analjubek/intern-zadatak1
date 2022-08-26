@@ -13,13 +13,14 @@ import CoreData
 class RectangleViewController: UIViewController {
     
     var rectangle: Rectangle?
-    static let cellId = "cellId"
     
     @IBOutlet weak var cvRectangles: UICollectionView!
     
     @IBOutlet weak var sizeView: UIView!
     
     let flowLayout = UICollectionViewFlowLayout()
+    
+    var cellRectangle: UICollectionViewCell?
     
     var randomInt: Int!
     
@@ -59,7 +60,7 @@ class RectangleViewController: UIViewController {
         self.flowLayout.minimumInteritemSpacing = 5
         
         self.cvRectangles.collectionViewLayout = self.flowLayout
-        self.cvRectangles.register(UICollectionViewCell.self, forCellWithReuseIdentifier: RectangleViewController.cellId)
+        self.cvRectangles.register(RectangleCell.self, forCellWithReuseIdentifier: RectangleCell.identifier)
         self.cvRectangles.dataSource = self
         self.cvRectangles.delegate = self
         self.cvRectangles.frame = self.sizeView.bounds
@@ -114,7 +115,7 @@ extension RectangleViewController: UICollectionViewDataSource {
         return (rectangle!.horizontalEdge * rectangle!.verticalEdge)
     }
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RectangleViewController.cellId, for: indexPath)
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RectangleCell.identifier, for: indexPath) as! RectangleCell
         
         randomInt = Int.random(in: 0..<256)
         let rgb = SingletonData.shared.fetchColorByIdFromCoreData(colorId: randomInt)
@@ -122,7 +123,8 @@ extension RectangleViewController: UICollectionViewDataSource {
         let g = rgb.g
         let b = rgb.b
         
-        cell.backgroundColor = UIColor(red: CGFloat(Float(r)/255.0), green: CGFloat(Float(g)/255.0), blue: CGFloat(Float(b)/255.0), alpha: 1.0)
+        cell.setColor(r: r, g: g, b: b)
+        
         return cell
     }
 }
