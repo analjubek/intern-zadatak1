@@ -10,6 +10,8 @@ import Lottie
 
 class LottieCoffeeViewController: UIViewController {
     
+    weak var coordinator: LottieCoffeeCoordinator?
+    
     @IBOutlet weak var viwSafeArea: UIView!
     
     // Lottie view
@@ -37,7 +39,8 @@ class LottieCoffeeViewController: UIViewController {
         /// A Color Value provider that returns a reddish color.
         let redValueProvider = ColorValueProvider(Color(r: 1, g: 0.2, b: 0.3, a: 1))
         /// Set the provider on the animationView.
-        animationView?.setValueProvider(redValueProvider, keypath: fillKeypath)*/
+        animationView?.setValueProvider(redValueProvider, keypath: fillKeypath)
+        */
         
         /*
         // Create an animation view.
@@ -47,7 +50,8 @@ class LottieCoffeeViewController: UIViewController {
         // Disable all nodes named Stroke 1, removing them from the current render tree.
         animationView?.setNodeIsEnabled(isEnabled: false, keypath: keypath1)
         // Re-enable all nodes named Stroke 1.
-        //animationView?.setNodeIsEnabled(isEnabled: true, keypath: keypath1)*/
+        //animationView?.setNodeIsEnabled(isEnabled: true, keypath: keypath1)
+        */
         
     }
     
@@ -56,5 +60,10 @@ class LottieCoffeeViewController: UIViewController {
         coordinator.animate(alongsideTransition: nil) { _ in
             self.animationView?.frame = self.viwSafeArea.bounds
         }
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.didControllerClosed()
     }
 }

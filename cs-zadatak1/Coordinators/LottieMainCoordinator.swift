@@ -12,8 +12,7 @@ class LottieMainCoordinator: Coordinator{
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    private var lottieCoffeeCoordinator: LottieCoffeeCoordinator?
-    private var lottieDownloadCoordinator: LottieDownloadCoordinator?
+    weak var parentCoordinator: MainViewCoordinator?
     
     lazy var lottieMainViewController: LottieMainViewController = {
         let vc = LottieMainViewController.fromNib(bundle: Bundle.main)
@@ -28,25 +27,30 @@ class LottieMainCoordinator: Coordinator{
         lottieMainViewController.delegate = self
         navigationController.pushViewController(lottieMainViewController, animated: true)
     }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated(){
+            if (coordinator === child) {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
+    }
+    
+    func didControllerClosed() {
+        parentCoordinator?.childDidFinish(self)
+    }
 }
 
 extension LottieMainCoordinator: LottieMainViewControllerDelegate {
     func coffeeButtonSelected(){
         let lottieCoffeeCoordinator = LottieCoffeeCoordinator(navigationController: navigationController)
-        
+        lottieCoffeeCoordinator.parentCoordinator = self
         lottieCoffeeCoordinator.start()
-
-        self.lottieCoffeeCoordinator = lottieCoffeeCoordinator
-        
-        childCoordinators.append(lottieCoffeeCoordinator)
     }
     func downloadButtonSelected(){
         let lottieDownloadCoordinator = LottieDownloadCoordinator(navigationController: navigationController)
-        
+        lottieDownloadCoordinator.parentCoordinator = self
         lottieDownloadCoordinator.start()
-
-        self.lottieDownloadCoordinator = lottieDownloadCoordinator
-        
-        childCoordinators.append(lottieDownloadCoordinator)
     }
 }

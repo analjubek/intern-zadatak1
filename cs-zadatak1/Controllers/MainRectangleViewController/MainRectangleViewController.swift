@@ -17,6 +17,8 @@ class MainRectangleViewController: UIViewController {
     
     weak var delegate: MainRectangleViewControllerDelegate?
     
+    weak var coordinator: MainRectangleCoordinator?
+    
     @IBOutlet weak var txtHorizontalEdge: UITextField!
     @IBOutlet weak var txtVerticalEdge: UITextField!
     
@@ -41,6 +43,11 @@ class MainRectangleViewController: UIViewController {
         hideWarnings()
         setupBol()
         disableButton()
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.didControllerClosed()
     }
     
     func setupBol(){

@@ -14,8 +14,9 @@ enum DownloadKeyFrames: CGFloat{
     case completion = 240
 }
 
-
 class LottieDownloadViewController: UIViewController {
+    
+    weak var coordinator: LottieDownloadCoordinator?
     
     // UIView u nibu --> custom class: AnimationView
     // u nibu promijeniti naziv animacije
@@ -40,7 +41,11 @@ class LottieDownloadViewController: UIViewController {
         ansSwitch.animation = Animation.named("switch")
         ansSwitch.setProgressForState(fromProgress: 0, toProgress: 0.5, forOnState: true)
         ansSwitch.setProgressForState(fromProgress: 0.5, toProgress: 1, forOnState: false)
-
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.didControllerClosed()
     }
     
     func startProgress(){

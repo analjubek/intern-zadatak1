@@ -18,24 +18,20 @@ class MainViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
     }
     
     @IBAction func btnRectanglesTUI(_ sender: Any) {
         delegate?.rectanglesButtonSelected()
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnLottieTUI(_ sender: Any) {
         delegate?.lottieButtonSelected()
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnMemoryLeakTUI(_ sender: Any) {
         delegate?.memoryLeakButtonSelected()
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

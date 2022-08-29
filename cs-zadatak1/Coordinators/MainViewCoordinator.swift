@@ -12,10 +12,6 @@ class MainViewCoordinator: Coordinator{
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    private var mainRectangleCoordinator: MainRectangleCoordinator?
-    private var lottieMainCoordinator: LottieMainCoordinator?
-    private var memoryLeakCoordinator: MemoryLeakCoordinator?
-    
     lazy var mainViewController: MainViewController = {
         let vc = MainViewController.fromNib(bundle: Bundle.main)
         return vc
@@ -25,40 +21,42 @@ class MainViewCoordinator: Coordinator{
         self.navigationController = navigationController
     }
     
+    deinit{
+        print ("MainViewCoordinator deinitialized")
+    }
+    
     func start() {
         mainViewController.delegate = self
         navigationController.pushViewController(mainViewController, animated: true)
+    }
+    
+    func childDidFinish(_ child: Coordinator?) {
+        for (index, coordinator) in childCoordinators.enumerated(){
+            if (coordinator === child) {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
 }
 
 extension MainViewCoordinator: MainViewControllerDelegate {
     func rectanglesButtonSelected() {
         let mainRectangleCoordinator = MainRectangleCoordinator(navigationController: navigationController)
-        
+        mainRectangleCoordinator.parentCoordinator = self
         mainRectangleCoordinator.start()
-
-        self.mainRectangleCoordinator = mainRectangleCoordinator
-        
         childCoordinators.append(mainRectangleCoordinator)
     }
     
     func lottieButtonSelected() {
         let lottieMainCoordinator = LottieMainCoordinator(navigationController: navigationController)
-        
+        lottieMainCoordinator.parentCoordinator = self
         lottieMainCoordinator.start()
-
-        self.lottieMainCoordinator = lottieMainCoordinator
-        
         childCoordinators.append(lottieMainCoordinator)
     }
     
     func memoryLeakButtonSelected() {
         let memoryLeakCoordinator = MemoryLeakCoordinator(navigationController: navigationController)
-        
         memoryLeakCoordinator.start()
-
-        self.memoryLeakCoordinator = memoryLeakCoordinator
-        
-        childCoordinators.append(memoryLeakCoordinator)
     }
 }

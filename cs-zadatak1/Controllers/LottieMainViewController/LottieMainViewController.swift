@@ -13,24 +13,26 @@ protocol LottieMainViewControllerDelegate: AnyObject {
 }
 
 class LottieMainViewController: UIViewController {
+    weak var coordinator: LottieMainCoordinator?
+    
     weak var delegate: LottieMainViewControllerDelegate?
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        coordinator?.didControllerClosed()
     }
 
     @IBAction func btnCoffeeTUI(_ sender: Any) {
         delegate?.coffeeButtonSelected()
-        //coordinator.childCoordinators.append(coordinator)
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnDownloadTUI(_ sender: Any) {
         delegate?.downloadButtonSelected()
-        //coordinator.childCoordinators.append(coordinator)
-        
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

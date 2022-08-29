@@ -5,6 +5,7 @@
 //  Created by Ana Ljubek on 11.08.2022..
 //
 
+
 import Foundation
 import UIKit
 
@@ -15,14 +16,11 @@ class RectangleCoordinator: Coordinator{
     var horizontalEdge: Int
     var verticalEdge: Int
     
-    // lazy stored property
-    // lazy var = just-in-time calculation of expensive work
     lazy var rectangleViewController: RectangleViewController = {
         let vc = RectangleViewController.fromNib(bundle: Bundle.main)
-        vc.rectangle = Rectangle(horizontalEdge: horizontalEdge, verticalEdge: verticalEdge) // šaljemo vrijednosti rectangleu rectangleViewControllera
+        vc.rectangle = Rectangle(horizontalEdge: horizontalEdge, verticalEdge: verticalEdge) 
         return vc
     }()
-    // These variables are created using a function you specify only when that variable is FIRST requested. If it's never requested, the function is never run, so it does help save processing time. -> stvara se samo ako je pozvana, jednom
     
     
     init(navigationController: UINavigationController, horizontalEdge: Int, verticalEdge: Int){

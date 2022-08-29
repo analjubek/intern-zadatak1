@@ -12,23 +12,21 @@ import CoreData
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var initialViewController: UIViewController?
+    var initialCoordinator: MainViewCoordinator?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         SingletonData.shared.start()
         
         let frame = UIScreen.main.bounds
         window = UIWindow(frame: frame)
-        
+    
         let appNavC = UINavigationController()
         self.window!.rootViewController = appNavC
-
         self.window!.makeKeyAndVisible()
         
-        let appCoordinator = MainViewCoordinator(navigationController: appNavC)
-        appCoordinator.start()
-        appCoordinator.childCoordinators.append(appCoordinator)
-
+        initialCoordinator = MainViewCoordinator(navigationController: appNavC)
+        initialCoordinator?.start()
+        
         return true
     }
 }

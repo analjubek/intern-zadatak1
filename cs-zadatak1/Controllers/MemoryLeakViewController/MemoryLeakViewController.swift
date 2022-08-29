@@ -15,11 +15,11 @@ class MemoryLeakViewController: UIViewController {
         
         memoryLeakView = MemoryLeakView(vc: self)
     }
-
 }
 
 class MemoryLeakView: UIView {
-    let vc: UIViewController
+    weak var vc: UIViewController?
+    
     init(vc: UIViewController){
         self.vc = vc
         super.init(frame: .zero)
@@ -29,3 +29,4 @@ class MemoryLeakView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
+

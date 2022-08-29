@@ -12,14 +12,12 @@ class LottieCoffeeCoordinator: Coordinator{
     var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    // lazy stored property
-    // lazy var = just-in-time calculation of expensive work
+    weak var parentCoordinator: LottieMainCoordinator?
+    
     lazy var lottieCoffeeViewController: LottieCoffeeViewController = {
         let vc = LottieCoffeeViewController.fromNib(bundle: Bundle.main)
         return vc
     }()
-    // These variables are created using a function you specify only when that variable is FIRST requested. If it's never requested, the function is never run, so it does help save processing time. -> stvara se samo ako je pozvana, jednom
-    
     
     init(navigationController: UINavigationController){
         self.navigationController = navigationController
@@ -27,5 +25,9 @@ class LottieCoffeeCoordinator: Coordinator{
     
     func start() {
         navigationController.pushViewController(lottieCoffeeViewController, animated: true)
+    }
+    
+    func didControllerClosed() {
+        parentCoordinator?.childDidFinish(self)
     }
 }

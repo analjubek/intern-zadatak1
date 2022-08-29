@@ -155,13 +155,13 @@
 		F66CC18228A51ADA004A39A7 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				F68DAA6E28B622E5003327C0 /* MemoryLeakViewController */,
-				F68DAA6328B61D36003327C0 /* LottieMainViewController */,
 				F68DAA5C28B619C9003327C0 /* MainViewController */,
-				F68DAA5328B4D705003327C0 /* LottieDownloadViewController */,
-				F68DAA3C28B3BC42003327C0 /* LottieCoffeeViewController */,
-				F66CC18428A51B27004A39A7 /* RectangleViewController */,
 				F66CC18328A51B19004A39A7 /* MainRectangleViewController */,
+				F66CC18428A51B27004A39A7 /* RectangleViewController */,
+				F68DAA6328B61D36003327C0 /* LottieMainViewController */,
+				F68DAA3C28B3BC42003327C0 /* LottieCoffeeViewController */,
+				F68DAA5328B4D705003327C0 /* LottieDownloadViewController */,
+				F68DAA6E28B622E5003327C0 /* MemoryLeakViewController */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -187,12 +187,12 @@
 		F66CC18528A51B46004A39A7 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
-				F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */,
 				F66CC18D28A62F8F004A39A7 /* MainViewCoordinator.swift */,
+				F68DAA6128B61C07003327C0 /* MainRectangleCoordinator.swift */,
+				F66CC18628A51BBD004A39A7 /* RectangleCoordinator.swift */,
+				F68DAA6828B61F8C003327C0 /* LottieMainCoordinator.swift */,
 				F68DAA4128B3C01D003327C0 /* LottieCoffeeCoordinator.swift */,
 				F68DAA5428B4D759003327C0 /* LottieDownloadCoordinator.swift */,
-				F68DAA6128B61C07003327C0 /* MainRectangleCoordinator.swift */,
-				F68DAA6828B61F8C003327C0 /* LottieMainCoordinator.swift */,
 				F68DAA7328B62316003327C0 /* MemoryLeakCoordinator.swift */,
 			);
 			path = Coordinators;

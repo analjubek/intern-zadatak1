@@ -16,7 +16,7 @@ class SingletonData {
     var colors: [ColorJSON] = []
     
     private init(){
-        //e neces
+        
     }
     
     public func start(){
