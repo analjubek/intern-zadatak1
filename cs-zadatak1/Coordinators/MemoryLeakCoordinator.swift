@@ -9,19 +9,24 @@ import Foundation
 import UIKit
 
 class MemoryLeakCoordinator: Coordinator{
-    var navigationController: UINavigationController
+    var navigationController: UINavigationController?
     var childCoordinators: [Coordinator] = []
+    
+    let router: RouterProtocol
+    
+    var isCompleted: (() -> ())?
     
     lazy var memoryLeakViewController: MemoryLeakViewController = {
         let vc = MemoryLeakViewController.fromNib(bundle: Bundle.main)
         return vc
     }()
     
-    init(navigationController: UINavigationController){
-        self.navigationController = navigationController
+    init(router: RouterProtocol) {
+        self.router = router
     }
     
     func start() {
-        navigationController.pushViewController(memoryLeakViewController, animated: true)
+        let viewController = MemoryLeakViewController()
+        router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
 }

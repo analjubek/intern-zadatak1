@@ -9,8 +9,12 @@ import Foundation
 import UIKit
 
 class LottieCoffeeCoordinator: Coordinator{
-    var navigationController: UINavigationController
+    var navigationController: UINavigationController?
     var childCoordinators: [Coordinator] = []
+    
+    let router: RouterProtocol
+    
+    var isCompleted: (() -> ())?
     
     weak var parentCoordinator: LottieMainCoordinator?
     
@@ -19,15 +23,12 @@ class LottieCoffeeCoordinator: Coordinator{
         return vc
     }()
     
-    init(navigationController: UINavigationController){
-        self.navigationController = navigationController
+    init(router: RouterProtocol) {
+        self.router = router
     }
     
     func start() {
-        navigationController.pushViewController(lottieCoffeeViewController, animated: true)
-    }
-    
-    func didControllerClosed() {
-        parentCoordinator?.childDidFinish(self)
+        let viewController = LottieCoffeeViewController()
+        router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
 }

@@ -62,8 +62,7 @@ class LottieCoffeeViewController: UIViewController {
         }
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.didControllerClosed()
+    deinit{
+        print("deinit \(self)")
     }
 }

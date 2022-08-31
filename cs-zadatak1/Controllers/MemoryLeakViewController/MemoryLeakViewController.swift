@@ -15,6 +15,10 @@ class MemoryLeakViewController: UIViewController {
         
         memoryLeakView = MemoryLeakView(vc: self)
     }
+    
+    deinit{
+        print("deinit \(self)")
+    }
 }
 
 class MemoryLeakView: UIView {

@@ -15,23 +15,33 @@ protocol MainViewControllerDelegate: AnyObject {
 
 class MainViewController: UIViewController {
     weak var delegate: MainViewControllerDelegate?
+    
+    var didSelectRectangles: (() -> ())?
+    var didSelectLottie: (() -> ())?
+    var didSelectMemoryLeak: (() -> ())?
+    
+    var didTapBack: (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
+    deinit{
+        print("deinit \(self)")
+    }
+    
     @IBAction func btnRectanglesTUI(_ sender: Any) {
-        delegate?.rectanglesButtonSelected()
+        self.didSelectRectangles?()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnLottieTUI(_ sender: Any) {
-        delegate?.lottieButtonSelected()
+        self.didSelectLottie?()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnMemoryLeakTUI(_ sender: Any) {
-        delegate?.memoryLeakButtonSelected()
+        self.didSelectMemoryLeak?()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

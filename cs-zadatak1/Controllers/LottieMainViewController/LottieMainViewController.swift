@@ -7,32 +7,27 @@
 
 import UIKit
 
-protocol LottieMainViewControllerDelegate: AnyObject {
-    func coffeeButtonSelected()
-    func downloadButtonSelected()
-}
-
 class LottieMainViewController: UIViewController {
-    weak var coordinator: LottieMainCoordinator?
+    var didSelectLottieCoffee: (() -> ())?
+    var didSelectLottieDownload: (() -> ())?
     
-    weak var delegate: LottieMainViewControllerDelegate?
+    var didTapBack: (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.didControllerClosed()
+    deinit{
+        print("deinit \(self)")
     }
 
     @IBAction func btnCoffeeTUI(_ sender: Any) {
-        delegate?.coffeeButtonSelected()
+        self.didSelectLottieCoffee?()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     
     @IBAction func btnDownloadTUI(_ sender: Any) {
-        delegate?.downloadButtonSelected()
+        self.didSelectLottieDownload?()
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
 }

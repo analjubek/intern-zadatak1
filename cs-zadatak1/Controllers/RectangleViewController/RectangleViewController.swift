@@ -54,6 +54,10 @@ class RectangleViewController: UIViewController {
         }
     }
     
+    deinit{
+        print("deinit \(self)")
+    }
+    
     func makeCollection(rectangle: Rectangle){
         self.changeItemSize()
         self.flowLayout.minimumLineSpacing = 5
@@ -147,6 +151,5 @@ extension RectangleViewController: UICollectionViewDelegate {
         }
     }
 }
-
 
 

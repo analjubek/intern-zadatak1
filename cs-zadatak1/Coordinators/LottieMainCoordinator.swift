@@ -9,48 +9,40 @@ import Foundation
 import UIKit
 
 class LottieMainCoordinator: Coordinator{
-    var navigationController: UINavigationController
     var childCoordinators: [Coordinator] = []
     
-    weak var parentCoordinator: MainViewCoordinator?
+    let router: RouterProtocol
     
-    lazy var lottieMainViewController: LottieMainViewController = {
-        let vc = LottieMainViewController.fromNib(bundle: Bundle.main)
-        return vc
-    }()
+    var isCompleted: (() -> ())?
     
-    init(navigationController: UINavigationController){
-        self.navigationController = navigationController
+    init(router: RouterProtocol) {
+        self.router = router
     }
     
     func start() {
-        lottieMainViewController.delegate = self
-        navigationController.pushViewController(lottieMainViewController, animated: true)
-    }
-    
-    func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated(){
-            if (coordinator === child) {
-                childCoordinators.remove(at: index)
-                break
-            }
+        let viewController = LottieMainViewController()
+        
+        viewController.didSelectLottieCoffee = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showLottieCoffeeView(in: strongSelf.router)
         }
+        viewController.didSelectLottieDownload = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showLottieDownloadView(in: strongSelf.router)
+        }
+        
+        router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
     
-    func didControllerClosed() {
-        parentCoordinator?.childDidFinish(self)
-    }
-}
-
-extension LottieMainCoordinator: LottieMainViewControllerDelegate {
-    func coffeeButtonSelected(){
-        let lottieCoffeeCoordinator = LottieCoffeeCoordinator(navigationController: navigationController)
-        lottieCoffeeCoordinator.parentCoordinator = self
+    func showLottieCoffeeView(in router: RouterProtocol) {
+        let lottieCoffeeCoordinator = LottieCoffeeCoordinator(router: router)
         lottieCoffeeCoordinator.start()
+        self.store(coordinator: lottieCoffeeCoordinator)
     }
-    func downloadButtonSelected(){
-        let lottieDownloadCoordinator = LottieDownloadCoordinator(navigationController: navigationController)
-        lottieDownloadCoordinator.parentCoordinator = self
+    func showLottieDownloadView(in router: RouterProtocol) {
+        let lottieDownloadCoordinator = LottieDownloadCoordinator(router: router)
         lottieDownloadCoordinator.start()
+        self.store(coordinator: lottieDownloadCoordinator)
     }
+    
 }

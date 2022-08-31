@@ -9,13 +9,10 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-protocol MainRectangleViewControllerDelegate: AnyObject {
-    func drawButtonSelected(horizontalEdge: Int, verticalEdge: Int)
-}
-
 class MainRectangleViewController: UIViewController {
+    var didSelectRectangle: ((Int, Int) -> ())?
     
-    weak var delegate: MainRectangleViewControllerDelegate?
+    var didTapBack: (() -> ())?
     
     weak var coordinator: MainRectangleCoordinator?
     
@@ -45,9 +42,8 @@ class MainRectangleViewController: UIViewController {
         disableButton()
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.didControllerClosed()
+    deinit{
+        print("deinit \(self)")
     }
     
     func setupBol(){
@@ -151,8 +147,7 @@ class MainRectangleViewController: UIViewController {
     }
     
     @IBAction func btnDrawTUI(_ sender: UIButton) {
-        delegate?.drawButtonSelected(horizontalEdge: horizontalInputInt, verticalEdge: verticalInputInt)
-        
+        self.didSelectRectangle?(self.horizontalInputInt, self.verticalInputInt)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

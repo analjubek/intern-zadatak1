@@ -43,14 +43,9 @@ class LottieDownloadViewController: UIViewController {
         ansSwitch.setProgressForState(fromProgress: 0.5, toProgress: 1, forOnState: false)
     }
     
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewDidDisappear(animated)
-        coordinator?.didControllerClosed()
-    }
-    
     func startProgress(){
         anvProgressAnimation.play(fromFrame: 0, toFrame: DownloadKeyFrames.startProgress.rawValue, loopMode: .none){ (_) in
-            self.download()
+            //self.download()
         }
     }
     
@@ -74,9 +69,11 @@ class LottieDownloadViewController: UIViewController {
         }
     }
     
-    
+    deinit{
+        print("deinit \(self)")
+    }
 }
-
+/*
 extension LottieDownloadViewController: URLSessionDownloadDelegate{
     func download() {
         // 1. URL to download from
@@ -107,3 +104,4 @@ extension LottieDownloadViewController: URLSessionDownloadDelegate{
         }
     }
 }
+*/

@@ -2,12 +2,30 @@
   "object": {
     "pins": [
       {
+        "package": "LeakedViewControllerDetector",
+        "repositoryURL": "https://github.com/Janneman84/LeakedViewControllerDetector",
+        "state": {
+          "branch": null,
+          "revision": "9e43e969694be5e374f0067f21685e5385ffadac",
+          "version": "1.2.0"
+        }
+      },
+      {
         "package": "Lottie",
         "repositoryURL": "https://github.com/airbnb/lottie-ios/",
         "state": {
           "branch": null,
           "revision": "4ca8023b820b7d5d5ae1e2637c046e3dab0f45d0",
           "version": "3.4.2"
+        }
+      },
+      {
+        "package": "Resolver",
+        "repositoryURL": "https://github.com/hmlongco/Resolver",
+        "state": {
+          "branch": null,
+          "revision": "97de0b0320036607564af4a60025b48f8d041221",
+          "version": "1.5.0"
         }
       },
       {

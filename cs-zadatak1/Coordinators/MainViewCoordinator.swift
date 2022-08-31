@@ -8,55 +8,53 @@
 import Foundation
 import UIKit
 
-class MainViewCoordinator: Coordinator{
-    var navigationController: UINavigationController
-    var childCoordinators: [Coordinator] = []
-    
-    lazy var mainViewController: MainViewController = {
-        let vc = MainViewController.fromNib(bundle: Bundle.main)
-        return vc
-    }()
-    
-    init(navigationController: UINavigationController){
-        self.navigationController = navigationController
+class MainViewCoordinator: BaseCoordinator{
+    let router: RouterProtocol
+
+    init(router: RouterProtocol) {
+        self.router = router
     }
     
-    deinit{
-        print ("MainViewCoordinator deinitialized")
+    override func start() {
+        let viewController = MainViewController()
+        
+        viewController.didSelectRectangles = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showMainRectanglesView(in: strongSelf.router)
+        }
+        viewController.didSelectLottie = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showLottieMainView(in: strongSelf.router)
+        }
+        viewController.didSelectMemoryLeak = { [weak self] in
+            guard let strongSelf = self else { return }
+            strongSelf.showMemoryLeakView(in: strongSelf.router)
+        }
+            router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
-    
-    func start() {
-        mainViewController.delegate = self
-        navigationController.pushViewController(mainViewController, animated: true)
+
+    func showMainRectanglesView(in router: RouterProtocol) {
+        let mainRectangleCoordinator = MainRectangleCoordinator(router: router)
+        mainRectangleCoordinator.start()
+        self.store(coordinator: mainRectangleCoordinator)
+    }
+    func showLottieMainView(in router: RouterProtocol) {
+        let lottieMainCoordinator = LottieMainCoordinator(router: router)
+        lottieMainCoordinator.start()
+        self.store(coordinator: lottieMainCoordinator)
+    }
+    func showMemoryLeakView(in router: RouterProtocol) {
+        let memoryLeakCoordinator = MemoryLeakCoordinator(router: router)
+        memoryLeakCoordinator.start()
+        self.store(coordinator: memoryLeakCoordinator)
     }
     
     func childDidFinish(_ child: Coordinator?) {
-        for (index, coordinator) in childCoordinators.enumerated(){
-            if (coordinator === child) {
-                childCoordinators.remove(at: index)
-                break
+            for (index, coordinator) in childCoordinators.enumerated(){
+                if (coordinator === child) {
+                    childCoordinators.remove(at: index)
+                    break
+                }
             }
         }
-    }
-}
-
-extension MainViewCoordinator: MainViewControllerDelegate {
-    func rectanglesButtonSelected() {
-        let mainRectangleCoordinator = MainRectangleCoordinator(navigationController: navigationController)
-        mainRectangleCoordinator.parentCoordinator = self
-        mainRectangleCoordinator.start()
-        childCoordinators.append(mainRectangleCoordinator)
-    }
-    
-    func lottieButtonSelected() {
-        let lottieMainCoordinator = LottieMainCoordinator(navigationController: navigationController)
-        lottieMainCoordinator.parentCoordinator = self
-        lottieMainCoordinator.start()
-        childCoordinators.append(lottieMainCoordinator)
-    }
-    
-    func memoryLeakButtonSelected() {
-        let memoryLeakCoordinator = MemoryLeakCoordinator(navigationController: navigationController)
-        memoryLeakCoordinator.start()
-    }
 }
