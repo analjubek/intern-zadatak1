@@ -15,11 +15,9 @@ class RectangleViewController: UIViewController {
     var rectangle: Rectangle?
     
     @IBOutlet weak var cvRectangles: UICollectionView!
-    
     @IBOutlet weak var sizeView: UIView!
     
     let flowLayout = UICollectionViewFlowLayout()
-    
     var cellRectangle: UICollectionViewCell?
     
     var randomInt: Int!
@@ -29,18 +27,13 @@ class RectangleViewController: UIViewController {
     var b: Int!
     
     var colors: [ColorJSON] = []
-    
     var selectedItems: [IndexPath] = []
-    
     var coreColors: [NSManagedObject]?
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
         self.coreColors = SingletonData.shared.fetchColorsFromCoreData()
-
         self.makeCollection(rectangle: self.rectangle!)
-        
     }
     
     override func viewDidLoad() {

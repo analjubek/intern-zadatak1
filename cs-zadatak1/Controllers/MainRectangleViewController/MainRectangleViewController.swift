@@ -10,17 +10,15 @@ import SnapKit
 import SwiftUI
 
 class MainRectangleViewController: UIViewController {
-    var didSelectRectangle: ((Int, Int) -> ())?
-    
-    var didTapBack: (() -> ())?
-    
+    var didSelectRectangle: ((_ horizontalEdge: Int, _ verticalEdge: Int) -> ())?
+
     weak var coordinator: MainRectangleCoordinator?
     
     @IBOutlet weak var txtHorizontalEdge: UITextField!
     @IBOutlet weak var txtVerticalEdge: UITextField!
     
-    var horizontalInputInt = 1
-    var verticalInputInt = 1
+    var horizontalInputInt: Int?
+    var verticalInputInt: Int?
     
     @IBOutlet weak var lblWrongHorizontalEdge: UILabel!
     @IBOutlet weak var lblWrongVerticalEdge: UILabel!
@@ -86,11 +84,11 @@ class MainRectangleViewController: UIViewController {
         if isIntegerNumber(input) {
             if (edge == "horizontal"){
                 horizontalInputInt = Int(input)!
-                return (horizontalInputInt <= 0 || horizontalInputInt > 10) ? false : true
+                return (horizontalInputInt! <= 0 || horizontalInputInt! > 10) ? false : true
             }
             if (edge == "vertical"){
                 verticalInputInt = Int(input)!
-                return (verticalInputInt <= 0 || verticalInputInt > 10) ? false : true
+                return (verticalInputInt! <= 0 || verticalInputInt! > 10) ? false : true
             }
         }
         return false
@@ -147,7 +145,7 @@ class MainRectangleViewController: UIViewController {
     }
     
     @IBAction func btnDrawTUI(_ sender: UIButton) {
-        self.didSelectRectangle?(self.horizontalInputInt, self.verticalInputInt)
+        self.didSelectRectangle?(self.horizontalInputInt!, self.verticalInputInt!)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

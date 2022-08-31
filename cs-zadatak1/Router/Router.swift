@@ -17,7 +17,7 @@ protocol RouterProtocol: class {
     func getNavigationController() -> UINavigationController
 }
 
-class Router : NSObject, RouterProtocol {
+class Router: NSObject, RouterProtocol {
 
     let navigationController: UINavigationController
     private var closures: [String: NavigationBackClosure] = [:]
@@ -40,6 +40,7 @@ class Router : NSObject, RouterProtocol {
         if let closure = closure {
             closures.updateValue(closure, forKey: viewController.description)
         }
+        
         navigationController.pushViewController(viewController, animated: isAnimated)
     }
     

@@ -9,33 +9,21 @@ import Foundation
 import UIKit
 
 class MainRectangleCoordinator: Coordinator{
-    var navigationController: UINavigationController?
     
-    weak var parentCoordinator: MainViewCoordinator?
-
     var childCoordinators: [Coordinator] = []
-    
     let router: RouterProtocol
-    
     var isCompleted: (() -> ())?
     
     init(router: RouterProtocol) {
         self.router = router
     }
     
-    lazy var mainRectangleViewController: MainRectangleViewController = {
-        let vc = MainRectangleViewController.fromNib(bundle: Bundle.main)
-        return vc
-    }()
-    
     func start() {
-        let viewController = MainRectangleViewController()
-        
+        lazy var viewController = MainRectangleViewController()
         viewController.didSelectRectangle = { [weak self] horizontalEdge, verticalEdge in
             guard let strongSelf = self else { return }
             strongSelf.showRectangleView(in: strongSelf.router, horizontalEdge: horizontalEdge, verticalEdge: verticalEdge)
         }
-        
         router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
     

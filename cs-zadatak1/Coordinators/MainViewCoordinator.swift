@@ -5,7 +5,6 @@
 //  Created by Ana Ljubek on 12.08.2022..
 //
 
-import Foundation
 import UIKit
 
 class MainViewCoordinator: BaseCoordinator{
@@ -16,7 +15,7 @@ class MainViewCoordinator: BaseCoordinator{
     }
     
     override func start() {
-        let viewController = MainViewController()
+        lazy var viewController = MainViewController()
         
         viewController.didSelectRectangles = { [weak self] in
             guard let strongSelf = self else { return }
@@ -30,7 +29,7 @@ class MainViewCoordinator: BaseCoordinator{
             guard let strongSelf = self else { return }
             strongSelf.showMemoryLeakView(in: strongSelf.router)
         }
-            router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
+        router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
 
     func showMainRectanglesView(in router: RouterProtocol) {
@@ -48,13 +47,4 @@ class MainViewCoordinator: BaseCoordinator{
         memoryLeakCoordinator.start()
         self.store(coordinator: memoryLeakCoordinator)
     }
-    
-    func childDidFinish(_ child: Coordinator?) {
-            for (index, coordinator) in childCoordinators.enumerated(){
-                if (coordinator === child) {
-                    childCoordinators.remove(at: index)
-                    break
-                }
-            }
-        }
 }

@@ -10,7 +10,6 @@ import UIKit
 
 class LottieDownloadCoordinator: Coordinator{
     var childCoordinators: [Coordinator] = []
-    
     let router: RouterProtocol
     
     var isCompleted: (() -> ())?
@@ -22,7 +21,7 @@ class LottieDownloadCoordinator: Coordinator{
     }
     
     func start() {
-        let viewController = LottieDownloadViewController()
+        lazy var  viewController = LottieDownloadViewController()
         router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
 }

@@ -8,9 +8,9 @@
 import Foundation
 import UIKit
 
-class AppCoordinator : BaseCoordinator {
+class AppCoordinator: BaseCoordinator {
 
-    let window : UIWindow
+    let window: UIWindow
 
     init(window: UIWindow) {
         self.window = window

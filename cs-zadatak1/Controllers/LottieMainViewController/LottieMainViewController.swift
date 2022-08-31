@@ -10,8 +10,6 @@ import UIKit
 class LottieMainViewController: UIViewController {
     var didSelectLottieCoffee: (() -> ())?
     var didSelectLottieDownload: (() -> ())?
-    
-    var didTapBack: (() -> ())?
 
     override func viewDidLoad() {
         super.viewDidLoad()

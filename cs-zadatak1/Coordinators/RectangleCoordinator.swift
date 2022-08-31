@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 
 class RectangleCoordinator: Coordinator{
-    var navigationController: UINavigationController?
+    
     var childCoordinators: [Coordinator] = []
     
     var horizontalEdge: Int
@@ -20,13 +20,6 @@ class RectangleCoordinator: Coordinator{
     
     var isCompleted: (() -> ())?
     
-    lazy var rectangleViewController: RectangleViewController = {
-        let vc = RectangleViewController.fromNib(bundle: Bundle.main)
-        vc.rectangle = Rectangle(horizontalEdge: horizontalEdge, verticalEdge: verticalEdge)
-        return vc
-    }()
-    
-    
     init(router: RouterProtocol, horizontalEdge: Int, verticalEdge: Int){
         self.router = router
         self.horizontalEdge = horizontalEdge
@@ -34,8 +27,7 @@ class RectangleCoordinator: Coordinator{
     }
     
     func start() {
-        //navigationController.pushViewController(rectangleViewController, animated: true)
-        let viewController = RectangleViewController()
+        lazy var viewController = RectangleViewController()
         viewController.rectangle = Rectangle(horizontalEdge: horizontalEdge, verticalEdge: verticalEdge)
         router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }

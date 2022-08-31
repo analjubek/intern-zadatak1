@@ -10,7 +10,6 @@ import UIKit
 
 class LottieMainCoordinator: Coordinator{
     var childCoordinators: [Coordinator] = []
-    
     let router: RouterProtocol
     
     var isCompleted: (() -> ())?
@@ -20,7 +19,7 @@ class LottieMainCoordinator: Coordinator{
     }
     
     func start() {
-        let viewController = LottieMainViewController()
+        lazy var viewController = LottieMainViewController()
         
         viewController.didSelectLottieCoffee = { [weak self] in
             guard let strongSelf = self else { return }
