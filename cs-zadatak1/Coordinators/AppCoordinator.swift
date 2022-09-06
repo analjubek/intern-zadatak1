@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class AppCoordinator: BaseCoordinator {
-
     let window: UIWindow
 
     init(window: UIWindow) {

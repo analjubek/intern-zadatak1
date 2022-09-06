@@ -156,7 +156,7 @@
 				F68DAA7D28B8A1BC003327C0 /* Cells */,
 				F66CC18228A51ADA004A39A7 /* Controllers */,
 				F68DAA7528B790F2003327C0 /* Singleton */,
-				F68DAA7C28B7A6A1003327C0 /* ClassesFunctions */,
+				F68DAA7C28B7A6A1003327C0 /* FunctionClasses */,
 				F664089528A1060B00FC2B62 /* AppDelegate.swift */,
 				F66408A028A1060C00FC2B62 /* LaunchScreen.storyboard */,
 				F66408A328A1060C00FC2B62 /* Info.plist */,
@@ -314,12 +314,12 @@
 			path = Singleton;
 			sourceTree = "<group>";
 		};
-		F68DAA7C28B7A6A1003327C0 /* ClassesFunctions */ = {
+		F68DAA7C28B7A6A1003327C0 /* FunctionClasses */ = {
 			isa = PBXGroup;
 			children = (
 				F68DAA7A28B7A612003327C0 /* LoadJSON.swift */,
 			);
-			path = ClassesFunctions;
+			path = FunctionClasses;
 			sourceTree = "<group>";
 		};
 		F68DAA7D28B8A1BC003327C0 /* Cells */ = {

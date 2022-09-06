@@ -11,10 +11,7 @@ import UIKit
 class LottieCoffeeCoordinator: Coordinator{
     var childCoordinators: [Coordinator] = []
     let router: RouterProtocol
-    
     var isCompleted: (() -> ())?
-    
-    weak var parentCoordinator: LottieMainCoordinator?
     
     init(router: RouterProtocol) {
         self.router = router

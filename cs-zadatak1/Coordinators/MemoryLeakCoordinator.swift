@@ -11,7 +11,6 @@ import UIKit
 class MemoryLeakCoordinator: Coordinator{
     var childCoordinators: [Coordinator] = []
     let router: RouterProtocol
-    
     var isCompleted: (() -> ())?
     
     init(router: RouterProtocol) {

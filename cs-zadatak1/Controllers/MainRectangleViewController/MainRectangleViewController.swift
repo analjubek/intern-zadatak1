@@ -9,10 +9,12 @@ import UIKit
 import SnapKit
 import SwiftUI
 
-class MainRectangleViewController: UIViewController {
-    var didSelectRectangle: ((_ horizontalEdge: Int, _ verticalEdge: Int) -> ())?
+protocol MainRectangleViewControllerDelegate: AnyObject{
+    func makeRectangles(horizontalInput: Int, verticalInput: Int)
+}
 
-    weak var coordinator: MainRectangleCoordinator?
+class MainRectangleViewController: UIViewController {
+    weak var delegate: MainRectangleViewControllerDelegate?
     
     @IBOutlet weak var txtHorizontalEdge: UITextField!
     @IBOutlet weak var txtVerticalEdge: UITextField!
@@ -29,7 +31,6 @@ class MainRectangleViewController: UIViewController {
     
     private var bolHorizontal: Bool!
     private var bolVertical: Bool!
-
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -145,7 +146,7 @@ class MainRectangleViewController: UIViewController {
     }
     
     @IBAction func btnDrawTUI(_ sender: UIButton) {
-        self.didSelectRectangle?(self.horizontalInputInt!, self.verticalInputInt!)
+        self.delegate?.makeRectangles(horizontalInput: self.horizontalInputInt!, verticalInput: self.verticalInputInt!)
         navigationItem.backBarButtonItem = UIBarButtonItem(title: "", style: .plain, target: nil, action: nil)
     }
     

@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 class MainRectangleCoordinator: Coordinator{
-    
     var childCoordinators: [Coordinator] = []
     let router: RouterProtocol
     var isCompleted: (() -> ())?
@@ -20,17 +19,16 @@ class MainRectangleCoordinator: Coordinator{
     
     func start() {
         lazy var viewController = MainRectangleViewController()
-        viewController.didSelectRectangle = { [weak self] horizontalEdge, verticalEdge in
-            guard let strongSelf = self else { return }
-            strongSelf.showRectangleView(in: strongSelf.router, horizontalEdge: horizontalEdge, verticalEdge: verticalEdge)
-        }
+        viewController.delegate = self
         router.push(viewController, isAnimated: true, onNavigateBack: self.isCompleted)
     }
-    
-    func showRectangleView(in router: RouterProtocol, horizontalEdge: Int, verticalEdge: Int) {
-        let rectangleCoordinator = RectangleCoordinator(router: router, horizontalEdge: horizontalEdge, verticalEdge: verticalEdge)
+}
+
+extension MainRectangleCoordinator: MainRectangleViewControllerDelegate{
+    func makeRectangles(horizontalInput: Int, verticalInput: Int) {
+        let strongSelf = self 
+        let rectangleCoordinator = RectangleCoordinator(router: strongSelf.router, horizontalEdge: horizontalInput, verticalEdge: verticalInput)
         rectangleCoordinator.start()
         self.store(coordinator: rectangleCoordinator)
     }
 }
-

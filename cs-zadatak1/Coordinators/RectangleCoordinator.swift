@@ -10,15 +10,12 @@ import Foundation
 import UIKit
 
 class RectangleCoordinator: Coordinator{
-    
     var childCoordinators: [Coordinator] = []
+    let router: RouterProtocol
+    var isCompleted: (() -> ())?
     
     var horizontalEdge: Int
     var verticalEdge: Int
-    
-    let router: RouterProtocol
-    
-    var isCompleted: (() -> ())?
     
     init(router: RouterProtocol, horizontalEdge: Int, verticalEdge: Int){
         self.router = router

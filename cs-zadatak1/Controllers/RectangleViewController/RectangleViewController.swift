@@ -11,7 +11,6 @@ import SwiftUI
 import CoreData
 
 class RectangleViewController: UIViewController {
-    
     var rectangle: Rectangle?
     
     @IBOutlet weak var cvRectangles: UICollectionView!

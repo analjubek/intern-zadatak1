@@ -73,7 +73,7 @@ class LottieDownloadViewController: UIViewController {
         print("deinit \(self)")
     }
 }
-/*
+
 extension LottieDownloadViewController: URLSessionDownloadDelegate{
     func download() {
         // 1. URL to download from
@@ -104,4 +104,4 @@ extension LottieDownloadViewController: URLSessionDownloadDelegate{
         }
     }
 }
-*/
+

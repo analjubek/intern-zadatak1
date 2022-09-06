@@ -8,7 +8,6 @@
 import UIKit
 
 class MainViewController: UIViewController {
-    
     var didSelectRectangles: (() -> ())?
     var didSelectLottie: (() -> ())?
     var didSelectMemoryLeak: (() -> ())?
